@@ -217,15 +217,7 @@ public class EbookingAjaxHandlerController {
 		  if(deliveryAddressRecord!=null){
 			  targetRecord = new JsonEbookingCustomerRecord();
 			  //Hand over the delivery address fields to the customer fields
-			  /*from TranspDisp 
-			  targetRecord.setAuxnavn(deliveryAddressRecord.getVadrna());
-			  targetRecord.setAdr1(deliveryAddressRecord.getVadrn1());
-			  targetRecord.setAdr2(deliveryAddressRecord.getVadrn2());
-			  targetRecord.setAdresse(deliveryAddressRecord.getVadrn3());
-			  targetRecord.setAuxtlf(deliveryAddressRecord.getVatlf());
-			  targetRecord.setAuxfax(deliveryAddressRecord.getVafax());
-			  targetRecord.setAuxmail(deliveryAddressRecord.getVamail());
-			  */
+			  
 			  targetRecord.setAuxnavn(deliveryAddressRecord.getVadrna());
 			  targetRecord.setGateAdr(deliveryAddressRecord.getVadrn1());
 			  targetRecord.setAdresse2(deliveryAddressRecord.getVadrn2());
