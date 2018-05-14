@@ -21,7 +21,7 @@
 	<tr>
 	<td>
 	<%-- tab container component --%>
-	<table width="100%"  class="text11" cellspacing="0" border="0" cellpadding="0">
+	<table width="100%"  class="text12" cellspacing="0" border="0" cellpadding="0">
 		<tr height="2"><td></td></tr>
 		<tr height="25"> 
 			<td width="20%" valign="bottom" class="tab" align="center" nowrap>
@@ -49,7 +49,7 @@
 			<tr height="10"><td></td></tr>
 			<%-- Should be set-on for the whole solution. This here was just a prototype
  	        <tr>
- 	        <td height="2px" valign="top" align="right"><font class="text11MediumBlue">Stretch workspace</font><input tabindex="-1" type="checkbox" id="checkBoxVisibility">&nbsp;&nbsp;</td>
+ 	        <td height="2px" valign="top" align="right"><font class="text12MediumBlue">Stretch workspace</font><input tabindex="-1" type="checkbox" id="checkBoxVisibility">&nbsp;&nbsp;</td>
  	        </tr>
  	        --%>
 		</table>		
@@ -122,32 +122,32 @@
 			    	<table width="100%">
 			    		<tr> 
 			    		<td>	
-			        		&nbsp;<font title="orderNr" class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.ordernr"/></font>
+			        		&nbsp;<font title="orderNr" class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.ordernr"/></font>
 			        		&nbsp;<input type="text" class="inputText" name="orderNr" id="orderNr" size="10" maxlength="15" value='${searchFilter.orderNr}'>
 				        </td>
 				        <td>	
-			        		&nbsp;<font title="date" class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.date"/></font>
+			        		&nbsp;<font title="date" class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.date"/></font>
 				        	&nbsp;<input type="text" class="inputText" name="date" id="date" size="10" maxlength="15" value='${searchFilter.date}'>
 				        </td>
 				        <td nowrap>	
-			        		&nbsp;<font title="fromDate/fromDate" class="text12"></font>
+			        		&nbsp;<font title="fromDate/fromDate" class="text14"></font>
 				        	&nbsp;<input type="text" class="inputText" name="fromDate" id="fromDate" size="9" maxlength="8" value='${searchFilter.fromDate}'>
 				        	-<input type="text" class="inputText" name="toDate" id="toDate" size="9" maxlength="8" value='${searchFilter.toDate}'>
 				        </td>
 				        <td>	
-			        		&nbsp;<font title="sender" class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.sender"/></font>
+			        		&nbsp;<font title="sender" class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.sender"/></font>
 				        	&nbsp;<input type="text" class="inputText" name="sender" id="sender" size="10" maxlength="15" value='${searchFilter.sender}'>
 				        </td>
 			        	<td>	
-			        		&nbsp;<font title="receiver" class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.receiver"/></font>
+			        		&nbsp;<font title="receiver" class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.receiver"/></font>
 				        	&nbsp;<input type="text" class="inputText" name="receiver" id="receiver" size="10" maxlength="15" value='${searchFilter.receiver}'>
 				        </td>
 			        	<td>	
-			        		&nbsp;<font title="from" class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.from"/></font>
+			        		&nbsp;<font title="from" class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.from"/></font>
 				        	&nbsp;<input type="text" class="inputText" name="from" id="from" size="9" maxlength="8" value='${searchFilter.from}'>
 				        </td>
 				        <td>	
-				        	&nbsp;<font title="to" class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.to"/></font>
+				        	&nbsp;<font title="to" class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.to"/></font>
 				        	&nbsp;<input type="text" class="inputText" name="to" id="to" size="9" maxlength="8" value='${searchFilter.to}'>&nbsp;&nbsp;&nbsp;
 				        </td>
 				        <td>	
@@ -179,27 +179,27 @@
 					
 					<table style="width:100%;" id="openOrders" class="display compact cell-border" cellspacing="0" >
 						<thead >
-						<tr style="background-color:#BCC6CC">
-							<th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.ordernr"/></th>   
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.sender"/></th>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.sender.etd"/></th>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.sender.etdtime"/></th>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.receiver"/></th>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.receiver.etd"/></th>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.receiver.etdtime"/></th>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.antall"/></th>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.weight"/></th>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.m3"/></th>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.from"/></th>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.to"/></th>
+						<tr class="tableHeaderField">
+							<th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.ordernr"/></th>   
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.sender"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.sender.etd"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.sender.etdtime"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.receiver"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.receiver.etd"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.receiver.etdtime"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.antall"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.weight"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.m3"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.from"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.to"/></th>
 		                    <%-- START Print --%>
 		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;F.br&nbsp;</td>
 		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;Cmr&nbsp;</td>
 		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;Merk Pdf&nbsp;</td>
 		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;Merk Zpl&nbsp;</td>
 		                    <%-- END Print --%>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.transmit"/></th>
-		                    <th class="text12"><spring:message code="systema.ebooking.orders.open.list.search.label.delete"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.transmit"/></th>
+		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.delete"/></th>
 		                    
 		                </tr> 
 		                </thead>
@@ -210,27 +210,27 @@
 			            <input type="hidden" name="unik_${counter.count}" id="unik_${counter.count}" value='${record.unik}'>
 			            <tr class="tex11" >
 			            	
-			               <td title="${record.unik}" class="text11MediumBlue" id="opd_${record.hereff}@${counter.count}" >
+			               <td title="${record.unik}" class="text14MediumBlue" id="opd_${record.hereff}@${counter.count}" >
 				           		<div id="opd${record.hereff}_linkcontainer${counter.count}" >
 				           		<a style="cursor:pointer;" id="@opd_${record.hereff}@alinkOpenOrdersListId_${counter.count}"
 				           			onClick="setBlockUI(this);" href="ebooking_mainorder.do?action=doFetch&heunik=${record.unik}&hereff=${record.hereff}&status=${record.status}">
 	    		    				<img title="Update" style="vertical-align:bottom;" src="resources/images/update.gif" border="0" alt="update">
-	    		    				<font class="text11MediumBlue">${record.hereff}</font>
+	    		    				<font class="text14MediumBlue">${record.hereff}</font>
 	    		    			</a>
 	    		    			</div>
 				           </td>
-				           <td align="left" class="text11MediumBlue">${record.henas}</td>
-			               <td align="left" class="text11MediumBlue">${record.trsdfd}</td>
-			               <td align="left" class="text11MediumBlue">${record.trsdfk}</td>
-			               <td align="left" class="text11MediumBlue">${record.henak}</td>
-			               <td align="left" class="text11MediumBlue">${record.trsdtd}</td>
-			               <td align="left" class="text11MediumBlue">${record.trsdtk}</td>
+				           <td align="left" class="text14MediumBlue">${record.henas}</td>
+			               <td align="left" class="text14MediumBlue">${record.trsdfd}</td>
+			               <td align="left" class="text14MediumBlue">${record.trsdfk}</td>
+			               <td align="left" class="text14MediumBlue">${record.henak}</td>
+			               <td align="left" class="text14MediumBlue">${record.trsdtd}</td>
+			               <td align="left" class="text14MediumBlue">${record.trsdtk}</td>
 			               
-			               <td align="center" class="text11MediumBlue">${record.hent}</td>
-			               <td align="center" class="text11MediumBlue">${record.hevkt}</td>
-			               <td align="center" class="text11MediumBlue">${record.hem3}</td>
-			               <td align="center" class="text11MediumBlue">${record.xfralk}${record.hesdf}</td>
-			               <td align="center" class="text11MediumBlue">${record.xtillk}${record.hesdt}</td>
+			               <td align="center" class="text14MediumBlue">${record.hent}</td>
+			               <td align="center" class="text14MediumBlue">${record.hevkt}</td>
+			               <td align="center" class="text14MediumBlue">${record.hem3}</td>
+			               <td align="center" class="text14MediumBlue">${record.xfralk}${record.hesdf}</td>
+			               <td align="center" class="text14MediumBlue">${record.xtillk}${record.hesdt}</td>
 			               <%-- START Print --%>
 		                    <td class="tableCellEbookingPrint" align="center">
 		                    	<%-- only those status that have a real state. Status=null is not allowed to print --%>
@@ -343,7 +343,7 @@
 		                    </td>
 		                    <%-- END Print --%>
 			               
-			               <td align="center" class="text11MediumBlue">
+			               <td align="center" class="text14MediumBlue">
 			               		<c:choose>
 				               		<c:when test="${record.status == 'E'}">
 				               			<c:choose>
@@ -374,7 +374,7 @@
 			               		</c:choose>
 			               </td>
 			               
-			               <td align="center" class="text11MediumBlue">
+			               <td align="center" class="text14MediumBlue">
 	            		  	 	<a sytle="cursor:pointer;" id="hereff_${record.hereff}@heunik_${record.unik}" title="delete" onClick="doPermanentlyDeleteOrder(this);" tabindex=-1>
 				               		<img src="resources/images/delete.gif" border="0" alt="remove">
 				               	</a>&nbsp;
@@ -404,11 +404,11 @@
 				 	<input type="hidden" name="actionGS" id="actionGS" value='doUpdate'/>
 					<input type="hidden" name="applicationUser" id="applicationUser" value='${user.user}'>
 					
-					<p class="text12" >&nbsp;Velg type av Transportoppdrag.</p>
+					<p class="text14" >&nbsp;Velg type av Transportoppdrag.</p>
 										
 					<table>
 						<tr>
-							<td class="text12MediumBlue">Type&nbsp;
+							<td class="text14MediumBlue">Type&nbsp;
 								<select name="selectedType" id="selectedType">
 									<c:forEach var="record" items="${model.containerOpenOrders.orderTypesNew}" >
 	                             	 	<option value="${record.newAvd}@${record.newModul}@${record.newModul2}@${record.newLandKode}@${record.newSideSK}@${record.newText}" >${record.newText}</option>

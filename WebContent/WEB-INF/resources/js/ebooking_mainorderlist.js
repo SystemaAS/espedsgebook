@@ -68,8 +68,8 @@
 		  autoOpen: false,
 		  maxWidth:400,
           maxHeight: 220,
-          width: 400,
-          height: 220,
+          width: 500,
+          height: 240,
 		  modal: true
 	  });
   });

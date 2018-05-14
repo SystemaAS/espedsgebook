@@ -2025,8 +2025,23 @@
       jq('input.tblItemLines_filter').on( 'keyup click', function () {
       		filterGlobal();
       });
+      
+      //init economy-matrix draggable poput 
+      showDialogFileUploadDraggable();
 	      
 	});
+  
+  	//draggable window
+  	function showDialogFileUploadDraggable(){
+	  //jq( "#dialogDraggableMatrix" ).removeClass("popup");
+	  jq( "#dialogDraggableFileUpload" ).dialog({
+		  minHeight: 280,
+		  minWidth:360,
+		  position: { my: "right top", at: "right top", of: "#topTableLocal" }
+	  }); 
+	  jq( "#dialogDraggableFileUpload" ).focus();
+  	}
+  
 	
   //TEXTAREA jQuery function to limit the number of characters per line
   //and per textarea
@@ -2111,5 +2126,6 @@
 
   });
 //END TEXTAREA
+  
   
   

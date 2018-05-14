@@ -51,7 +51,7 @@
 					<tr><td><hr size="1" width="100%"/></td></tr>								           		
 	           		<tr height="15"><td></td></tr>
 					
-					<tr class="text12" >
+					<tr class="text14" >
 					<td class="ownScrollableSubWindowDynamicWidthHeight" width="100%" style="height:30em;">
 						<%-- this is the datatables grid (content) --%>
 						<c:choose>
@@ -64,10 +64,10 @@
 						</c:choose>
 					
 						<thead>
-						<tr style="background-color:#EEEEEE">
-						    <th class="text11">&nbsp;<spring:message code="systema.ebooking.childwindow.postalcodes.label.postalcode"/>&nbsp;</th>   
-		                    <th class="text11">&nbsp;<spring:message code="systema.ebooking.childwindow.postalcodes.label.city"/>&nbsp;</th>
-		                    <th class="text11">&nbsp;<spring:message code="systema.ebooking.childwindow.postalcodes.label.country"/>&nbsp;</th>
+						<tr class="tableHeaderField">
+						    <th class="text14">&nbsp;<spring:message code="systema.ebooking.childwindow.postalcodes.label.postalcode"/>&nbsp;</th>   
+		                    <th class="text14">&nbsp;<spring:message code="systema.ebooking.childwindow.postalcodes.label.city"/>&nbsp;</th>
+		                    <th class="text14">&nbsp;<spring:message code="systema.ebooking.childwindow.postalcodes.label.country"/>&nbsp;</th>
 		                </tr> 
 		                </thead>
 		                
@@ -75,18 +75,18 @@
 		                <c:forEach var="record" items="${model.postalCodeList}" varStatus="counter">    
 			               <c:choose>           
 			                   <c:when test="${counter.count%2==0}">
-			                   	   <tr class="text11">
+			                   	   <tr class="text14">
 			                   </c:when>
 			                   <c:otherwise>
- 		                   		   <tr class="text11">
+ 		                   		   <tr class="text14">
 			                   </c:otherwise>
 			               </c:choose>
-			               <td style="width:20%; cursor:pointer;" class="text11MediumBlue" id="postalcode_${record.st2kod}@country_${record.st2lk}@city_${record.st2nvn}@caller_${model.record.caller}@dt_postalcode_${counter.count}" >
+			               <td style="width:20%; cursor:pointer;" class="text14MediumBlue" id="postalcode_${record.st2kod}@country_${record.st2lk}@city_${record.st2nvn}@caller_${model.record.caller}@dt_postalcode_${counter.count}" >
 			               	 &nbsp;<img title="select" valign="bottom" src="resources/images/update.gif" border="0" alt="edit">
 			               	 &nbsp;&nbsp;${record.st2kod}
 		               	  </td>
-			               <td class="text11">&nbsp;${record.st2nvn}</td>
-			               <td class="text11">&nbsp;${record.st2lk}</td>
+			               <td class="text14">&nbsp;${record.st2nvn}</td>
+			               <td class="text14">&nbsp;${record.st2lk}</td>
 			            </tr> 
 			            </c:forEach>
 			            </tbody>
