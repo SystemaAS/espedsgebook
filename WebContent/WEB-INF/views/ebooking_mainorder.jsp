@@ -944,37 +944,37 @@
 											<input title="from model" tabindex=-1 class="text14BoldLightGreenForItemLinenrBookingBg" readonly type="text" name="fvlinr" id="fvlinr" size="3" value='${model.record.fraktbrevRecord.fvlinr}'>
 										</td>	
 							 			<td align="center" class="text14" nowrap>
-						 					<input type="text" class="inputTextMediumBlue10" name="fmmrk1" id="fmmrk1" size="16" maxlength="15" value="${model.record.fraktbrevRecord.fmmrk1}">
+						 					<input type="text" class="inputTextMediumBlue" name="fmmrk1" id="fmmrk1" size="16" maxlength="15" value="${model.record.fraktbrevRecord.fmmrk1}">
 						 				</td>
 						 				<td align="right" class="text14" nowrap>
-							 				<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue10MandatoryField" style="text-align:right;" name="fvant" id="fvant" size="7" maxlength="7" value="${model.record.fraktbrevRecord.fvant}">
+							 				<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlueMandatoryField" style="text-align:right;" name="fvant" id="fvant" size="7" maxlength="7" value="${model.record.fraktbrevRecord.fvant}">
 						 				</td>
 						 				<td align="center" class="text14" nowrap>
-							 				<input type="text" onBlur="searchPackingCodesNewLineOnBlur(this);" class="inputTextMediumBlue10" name="fvpakn" id="fvpakn" size="8" maxlength="7" value="${model.record.fraktbrevRecord.fvpakn}">
+							 				<input type="text" onBlur="searchPackingCodesNewLineOnBlur(this);" class="inputTextMediumBlue" name="fvpakn" id="fvpakn" size="8" maxlength="7" value="${model.record.fraktbrevRecord.fvpakn}">
 							 				<a tabindex=0 id="fvpaknIdLinkNewLine" onClick="searchPackingCodesNewLine(this);">
 	 											<img id="imgfvpaknSearch" align="bottom" style="cursor:pointer;" src="resources/images/find2.png" height="11px" width="11px" border="0" alt="search">
 	 										</a>
 						 				</td>
 						 				<td align="center" class="text14" nowrap>
-							 				<input type="text" class="inputTextMediumBlue10MandatoryField" name="fvvt" id="fvvt" size="20" maxlength="25" value="${model.record.fraktbrevRecord.fvvt}">
+							 				<input type="text" class="inputTextMediumBlueMandatoryField" name="fvvt" id="fvvt" size="20" maxlength="25" value="${model.record.fraktbrevRecord.fvvt}">
 						 				</td>
 						 				<td align="right" class="text14" nowrap>
-							 				<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue10MandatoryField" style="text-align:right;" name="fvvkt" id="fvvkt" size="5" maxlength="9" value="${model.record.fraktbrevRecord.fvvkt}">
+							 				<input onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlueMandatoryField" style="text-align:right;" name="fvvkt" id="fvvkt" size="5" maxlength="9" value="${model.record.fraktbrevRecord.fvvkt}">
 						 				</td>
 						 				<td align="right" class="text14" nowrap>
-							 				<input onBlur="calculateVolume(this);" onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue10" style="text-align:right;" name="fvlen" id="fvlen" size="4" maxlength="4" value="${model.record.fraktbrevRecord.fvlen}">
+							 				<input onBlur="calculateVolume(this);" onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="fvlen" id="fvlen" size="4" maxlength="4" value="${model.record.fraktbrevRecord.fvlen}">
 						 				</td>
 						 				<td align="right" class="text14" nowrap>
-							 				<input onBlur="calculateVolume(this);" onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue10" style="text-align:right;" name="fvbrd" id="fvbrd" size="4" maxlength="4" value="${model.record.fraktbrevRecord.fvbrd}">
+							 				<input onBlur="calculateVolume(this);" onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="fvbrd" id="fvbrd" size="4" maxlength="4" value="${model.record.fraktbrevRecord.fvbrd}">
 						 				</td>
 						 				<td align="right" class="text14" nowrap>
-							 				<input onBlur="calculateVolume(this);validateNewItemLine();" onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue10" style="text-align:right;" name="fvhoy" id="fvhoy" size="4" maxlength="4" value="${model.record.fraktbrevRecord.fvhoy}">
+							 				<input onBlur="calculateVolume(this);validateNewItemLine();" onKeyPress="return numberKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="fvhoy" id="fvhoy" size="4" maxlength="4" value="${model.record.fraktbrevRecord.fvhoy}">
 						 				</td>
 						 				<td align="right" class="text14" nowrap>
-							 				<input onFocus="calculateVolume(this);" onBlur="checkVolumeNewLine(this);" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue10" style="text-align:right;" name="fvvol" id="fvvol" size="6" maxlength="8" value="${model.record.fraktbrevRecord.fvvol}">
+							 				<input onFocus="calculateVolume(this);" onBlur="checkVolumeNewLine(this);" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="fvvol" id="fvvol" size="6" maxlength="8" value="${model.record.fraktbrevRecord.fvvol}">
 						 				</td>
 						 				<td align="right" class="text14" nowrap>
-							 				<input onBlur="checkLmNewLine(this);validateNewItemLine();" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue10" style="text-align:right;" name="fvlm" id="fvlm" size="4" maxlength="5" value="${model.record.fraktbrevRecord.fvlm}">
+							 				<input onBlur="checkLmNewLine(this);validateNewItemLine();" onKeyPress="return amountKey(event)" type="text" class="inputTextMediumBlue" style="text-align:right;" name="fvlm" id="fvlm" size="4" maxlength="5" value="${model.record.fraktbrevRecord.fvlm}">
 						 				</td>
 						 				
 						 				<td align="center" class="text14" >
