@@ -22,6 +22,8 @@ import no.systema.ebooking.service.EbookingChildWindowServiceImpl;
 import no.systema.main.service.UrlCgiProxyService;
 import no.systema.main.service.UrlCgiProxyServiceImpl;
 import no.systema.main.util.DateTimeManager;
+import no.systema.main.util.StringManager;
+import no.systema.main.validator.DateValidator;
 import no.systema.main.validator.EmailValidator;
 
 /**
@@ -37,6 +39,9 @@ public class OrderHeaderValidator implements Validator {
 	private EbookingChildWindowService ebookingChildWindowService = new EbookingChildWindowServiceImpl();
 	private UrlCgiProxyService urlCgiProxyService = new UrlCgiProxyServiceImpl();
 	private EmailValidator emailValidator = new EmailValidator();
+	private StringManager strMgr = new StringManager();
+	private DateValidator dateValidator = new DateValidator();
+	
 	/**
 	 * 
 	 */
@@ -66,13 +71,23 @@ public class OrderHeaderValidator implements Validator {
 		
 		//Check rules
 		if(record!=null){
-			//Date check
-			if(record.getWsetdd()!=null && !"".equals(record.getWsetdd()) ){
-				boolean isValidDate = new DateTimeManager().isValidCurrentAndForwardDate(record.getWsetdd(), "yyyyMMdd");
-				if(!isValidDate){
-					errors.rejectValue("wsetdd", "systema.ebooking.orders.form.update.error.rule.avgangTidDtm1NotValid"); 
+			//------
+			//dates 
+			//------
+			if(strMgr.isNotNull(record.getWsetdd())){
+				if(!dateValidator.validateDate(record.getWsetdd(), DateValidator.DATE_MASK_ISO)){
+					boolean isValidDate = new DateTimeManager().isValidCurrentAndForwardDate(record.getWsetdd(), "yyyyMMdd");
+					if(!isValidDate){
+						errors.rejectValue("wsetdd", "systema.ebooking.orders.form.update.error.rule.avgangTidDtm1NotValid"); 
+					} 	
 				}
 			}
+			if(strMgr.isNotNull(record.getWsetad())){
+				if(!dateValidator.validateDate(record.getWsetad(), DateValidator.DATE_MASK_ISO)){
+					errors.rejectValue("wsetad", "systema.ebooking.orders.form.update.error.rule.levTidDtm1NotValid"); 
+				}
+			}
+			
 			
 			//Fakturapart
 			if( (record.getHeknsf() !=null && !"".equals(record.getHeknsf())) && (record.getHeknkf()!=null && !"".equals(record.getHeknkf())) ){

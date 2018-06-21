@@ -157,7 +157,7 @@
 											<tr>
 												<td class="text12">&nbsp;Arkiv typen:</td>
 												<td class="text12">&nbsp;
-													<select tabindex=-1 name="wstype" id="wstype">
+													<select class="selectMediumBlueE2" tabindex=-1 name="wstype" id="wstype">
 														<c:forEach var="record" items="${user.arkivKodOpdList}" >
 								                       	 	<option value="${record.arkKod}">${record.arkKod}-${record.arkTxt}</option>
 														</c:forEach> 
@@ -254,7 +254,7 @@
 					 					&nbsp;&nbsp;&nbsp;<span title="xfakBet"><spring:message code="systema.ebooking.orders.form.update.label.fraktbetaler"/></span>
 					 				</td>
 					 				<td class="text14">
-										<select <c:if test="${not model.record.fakBetExists}"> disabled </c:if> name="xfakBet" id="xfakBet">
+										<select class="selectMediumBlueE2" <c:if test="${not model.record.fakBetExists}"> disabled </c:if> name="xfakBet" id="xfakBet">
 											<option value=''>-velg-</option>
 						 					<option value='S' <c:if test="${model.record.xfakBet == 'S'}"> selected </c:if> ><spring:message code="systema.ebooking.orders.form.update.label.shipper.seller"/></option>
 				 							<option value='M' <c:if test="${model.record.xfakBet == 'M'}"> selected </c:if> ><spring:message code="systema.ebooking.orders.form.update.label.consignee"/></option>
@@ -465,7 +465,7 @@
 							 					<td class="text14" ><input type="text" class="inputTextMediumBlueUPPERCASE" name="heknsf" id="heknsf" size="10" maxlength="8" value="${model.record.heknsf}"></td>
 											 	<td class="text14" ><input readonly tabindex=-1 type="text" class="inputTextReadOnly" name="whenasf" id="whenasf" size="50" value="${model.record.heknsfNavn} - ${model.record.heknsfPnSt}"></td>
 							 					<td class="text14" >
-							 						<select name="hevals" id="hevals">
+							 						<select class="selectMediumBlueE2" name="hevals" id="hevals">
 								 						<option value="">-valuta-</option>
 									 				  	<c:forEach var="currency" items="${model.currencyCodeList}" >
 									 				  		<option value="${currency}"<c:if test="${model.record.hevals == currency || (empty model.record.hevals && currency=='NOK')}"> selected </c:if> >${currency}</option>
@@ -737,7 +737,7 @@
 											<span title="heot"><spring:message code="systema.ebooking.orders.form.update.label.oppdragstype"/></span>
 							 			</td>
 							 			<td class="text14">
-							 				<select name="heot" id="heot">
+							 				<select class="selectMediumBlueE2" name="heot" id="heot">
 							 					<c:forEach var="record" items="${model.oppdragstypeList}" varStatus="counter">
 							 						<option value='${record.opdTyp}' <c:if test="${record.opdTyp == model.record.heot}"> selected </c:if> >${record.opdTyp}</option>
 							 						<c:set var="listSizeHeot" value="${counter.count}" scope="request" /> 
@@ -752,7 +752,7 @@
 											<span title="hefr"><spring:message code="systema.ebooking.orders.form.update.label.incoterms"/></span>
 							 			</td>
 							 			<td class="text14">
-							 				<select name="hefr" id="hefr">
+							 				<select class="selectMediumBlueE2" name="hefr" id="hefr">
 							 					<c:forEach var="record" items="${model.incotermsList}" varStatus="counter">
 							 						<option value='${record.franka}' <c:if test="${record.franka == model.record.hefr}"> selected </c:if> >${record.franka}</option>
 							 						<c:set var="listSizeHefr" value="${counter.count}" scope="request" />
@@ -767,7 +767,7 @@
 											<span title="todo"><spring:message code="systema.ebooking.orders.form.update.label.productcode"/></span>
 							 			</td>
 							 			<td class="text14">
-							 				<select name="todo" id="todo">
+							 				<select class="selectMediumBlueE2" name="todo" id="todo">
 							 					<option value='todo' <c:if test="${fraktbrevRecord.ffenh == 'KG' || fraktbrevRecord.ffenh == 'kg'}"> selected </c:if> >Normalfrakt</option>
 											</select>
 							 			</td>
