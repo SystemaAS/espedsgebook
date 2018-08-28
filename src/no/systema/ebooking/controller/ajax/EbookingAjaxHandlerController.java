@@ -7,6 +7,7 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.util.*;
+import java.util.regex.Pattern;
 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
@@ -30,6 +31,8 @@ import org.springframework.web.multipart.MultipartFile;
 import no.systema.main.model.SystemaWebUser;
 import no.systema.main.service.UrlCgiProxyService;
 import no.systema.main.util.JsonDebugger;
+import no.systema.main.util.StringManager;
+
 
 import no.systema.main.model.jsonjackson.general.postalcodes.JsonPostalCodesContainer;
 import no.systema.main.model.jsonjackson.general.postalcodes.JsonPostalCodesRecord;
@@ -71,7 +74,7 @@ public class EbookingAjaxHandlerController {
 	private RpgReturnResponseHandler rpgReturnResponseHandler = new RpgReturnResponseHandler();
 	//private ControllerAjaxCommonFunctionsMgr controllerAjaxCommonFunctionsMgr;
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(2000);
-	
+	private StringManager strMgr = new StringManager();
 	
 	/**
 	 * 
@@ -508,17 +511,25 @@ public class EbookingAjaxHandlerController {
 		    
 		    
 		    if (file!=null && !file.isEmpty()) {
-      		String fileName = file.getOriginalFilename();
-      		logger.info("FILE NAME:" + fileName);
-      		if(fileNameNew!=null && !"".equals(fileNameNew)){ fileName = fileNameNew; }
-              //validate file
-      		JsonMainOrderFileUploadValidationContainer uploadValidationContainer = this.validateFileUpload(fileName, applicationUser);
-              //if valid
-              if(uploadValidationContainer!=null && "".equals(uploadValidationContainer.getErrMsg())){
-	                // TEST String rootPath = System.getProperty("catalina.home");
-              		String rootPath	= uploadValidationContainer.getTmpdir();
-              	    File dir = new File(rootPath);
-              	    
+	      		String fileName = file.getOriginalFilename();
+	      		logger.info("FILE NAME:" + fileName);
+	      		
+	      		if(fileNameNew!=null && !"".equals(fileNameNew)){ 
+	      			fileName = fileNameNew;
+	      		}
+	      		//pre-validate file name requirements
+              	if(this.preValidateFileName(fileName)){
+              		//max 40-chars long (server side)
+              		
+              		fileName = this.shortenFileName(fileName);
+		      		//validate file
+		      		JsonMainOrderFileUploadValidationContainer uploadValidationContainer = this.validateFileUpload(fileName, applicationUser);
+		      		//if valid
+		      		if(uploadValidationContainer!=null && "".equals(uploadValidationContainer.getErrMsg())){
+		                // TEST String rootPath = System.getProperty("catalina.home");
+	              		String rootPath	= uploadValidationContainer.getTmpdir();
+	              	    File dir = new File(rootPath);
+	              	    
 		        	    try {
 			                byte[] bytes = file.getBytes();
 			                // Create the file on server
@@ -548,8 +559,8 @@ public class EbookingAjaxHandlerController {
 		            		String absoluteFileName = rootPath + File.separator + fileName;
 		            		return ERROR_TAG + "You failed to upload to:" + fileName + " runtime error:" + e.getMessage();
 		        	    }
-
-              }else{
+	
+		      		}else{
 		        		if(uploadValidationContainer!=null){
 		        			logger.info(uploadValidationContainer.getErrMsg());
 		        			//Back-end error message output upon validation
@@ -557,15 +568,61 @@ public class EbookingAjaxHandlerController {
 		        		}else{
 		        			return ERROR_TAG + "NULL on upload file validation Object??";
 		        		}
-	        	}
+		      		}
+              	}else{
+              		return ERROR_TAG + "File name not valid. Check for special characters, spaces, file type missing, etc";
+              	}
 	        } else {
 	        	logger.info("FILE NAME empty!");
 	        	return ERROR_TAG + "You failed to upload " + fileNameNew + " because the file was empty.";
 	        }
 		    
 		}
-	  
+		/**
+		 * 
+		 * @param fileName
+		 * @return
+		 */
+		private boolean preValidateFileName(String fileName){
+			boolean retval = false;
+			if(strMgr.isNotNull(fileName)){
+				//aaaaa.doc or aaaaa.docx or aaaaaa.docxxxxxxx... (no spaces, no special chars, no se,no,dk letters, no more than 1-decimal point)
+				if(Pattern.matches("\\w+[.]\\w{3,}", fileName)){
+					retval = true;
+				}
+			}
+			
+			return retval;
+		}
 		
+		/**
+		 * 
+		 * @param fileName
+		 * @return
+		 */
+		private String shortenFileName(String fileName){
+			int TOTAL_40_LENGTH = 40;
+			String retval = fileName;
+			if(this.strMgr.isNotNull(fileName)){
+				if(fileName.length()>TOTAL_40_LENGTH){
+					int index = fileName.indexOf(".");
+					int suffixLen = fileName.length() - index;
+					//Isolate file name without file type since we have to chop the file name excluding the file type.
+					//The total length including file type = 40 
+					String fileNameWithoutSuffix = fileName.substring(0, index);
+					String fileTypeStringIncludingPoint = fileName.substring(index);
+					
+					int chopIndex = TOTAL_40_LENGTH - suffixLen;
+					if(fileNameWithoutSuffix.length() > chopIndex){
+						fileNameWithoutSuffix = fileNameWithoutSuffix.substring(0, chopIndex);
+					}
+					//total length <= 40
+					retval = fileNameWithoutSuffix + fileTypeStringIncludingPoint;
+					
+				}
+			}
+			return retval;
+		}
 		/**
 	     * 
 	     * @param fileName
