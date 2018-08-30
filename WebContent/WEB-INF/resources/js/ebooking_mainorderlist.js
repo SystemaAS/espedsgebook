@@ -158,15 +158,17 @@
     //init table (no ajax, no columns since the payload is already there by means of HTML produced on the back-end)
 	jq('#openOrders').dataTable( {
 	  "jQueryUI": false,
-	  "dom": '<"top"fli>rt<"bottom"p><"clear">',
-	  "scrollY":        	"700px",
+	  "dom": '<"top"lf>t<"bottom"ip><"clear">',
+	  "scrollY":   "700px",
 	  "scrollCollapse":  	true,
+	  "tabIndex": -1,
 	  //"columnDefs": [{ className: "dt-head-left", "targets": [ 2 ] }],
 	  "order": [[ 2, "desc" ]],
 	  
 	  //"autoWidth": false, //for optimization purposes when initializing the table
 	  "lengthMenu": [ 50, 75, 100],
-	  "language": { "url": getLanguage(lang) }
+	  "language": { "url": getLanguage(lang) },
+	  "fnDrawCallback": function( oSettings ) { jq('.dataTables_filter input').addClass("inputText12LightYellow"); }
 	} );
 	
     //event on input field for search
