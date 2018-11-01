@@ -347,7 +347,7 @@
 		 										<img id="imgShipperSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 									</a>
 	 									<%-- </c:if> --%>
-	 									<font style="margin-left:12em;color:darkgreen;" title="wvakure">Hurtigsøk-knr</font>
+	 									<font style="margin-left:10em;color:darkgreen;" title="wvakure">&nbsp;Hurtigsøk-knr</font>
 					 				</td>
 					 				<td class="text14">&nbsp;<font class="text16RedBold" >*</font><span title="heads1"><spring:message code="systema.ebooking.orders.form.update.label.shipper.adr1"/></span></td>
 					 			</tr>
@@ -515,7 +515,7 @@
 		 										<img id="imgConsigneeSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 									</a>
 	 									<%-- </c:if> --%>
-	 									<font style="margin-left:12em;color:darkgreen;" title="wvakure2">Hurtigsøk-knr</font>
+	 									<font style="margin-left:10em;color:darkgreen;" title="wvakure2">&nbsp;Hurtigsøk-knr</font>
 					 				</td>
 					 				<td class="text14">&nbsp;<font class="text16RedBold" >*</font><span title="headk1"><spring:message code="systema.ebooking.orders.form.update.label.consignee.adr1"/></span></td>
 					 			</tr>
@@ -951,8 +951,8 @@
 						 				</td>
 						 				<td align="center" class="text14" nowrap>
 							 				<input type="text" onBlur="searchPackingCodesNewLineOnBlur(this);" class="inputTextMediumBlue" name="fvpakn" id="fvpakn" size="8" maxlength="7" value="${model.record.fraktbrevRecord.fvpakn}">
-							 				<a tabindex=0 id="fvpaknIdLinkNewLine" onClick="searchPackingCodesNewLine(this);">
-	 											<img id="imgfvpaknSearch" align="bottom" style="cursor:pointer;" src="resources/images/find2.png" height="11px" width="11px" border="0" alt="search">
+							 				<a tabindex=-1 id="fvpaknIdLinkNewLine" onClick="searchPackingCodesNewLine(this);">
+	 											<img id="imgfvpaknSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="12px" width="12px" border="0" alt="search">
 	 										</a>
 						 				</td>
 						 				<td align="center" class="text14" nowrap>

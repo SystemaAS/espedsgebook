@@ -362,12 +362,12 @@
 				if(target==CITY_OWNwppns1){
 					jq('#OWNwppns1').val(data[i].st2nvn);
 					jq('#helka').val(data[i].st2lk);
-					jq('#hesdf').attr("class","inputTextMediumBlue11MandatoryField");
+					jq('#hesdf').attr("class","inputTextMediumBlueMandatoryField");
 					
 				}else if(target==CITY_OWNwppns2){
 					jq('#OWNwppns2').val(data[i].st2nvn);
 					jq('#hetri').val(data[i].st2lk);
-					jq('#hesdt').attr("class","inputTextMediumBlue11MandatoryField");
+					jq('#hesdt').attr("class","inputTextMediumBlueMandatoryField");
 					
 				}/*else if(target==CITY_OWNwppns3){
 					jq('#OWNwppns3').val(data[i].st2nvn);
@@ -383,10 +383,10 @@
 		}else{
 			//invalid postal code
 			if(target==CITY_OWNwppns1){
-				jq('#hesdf').addClass("text11RedBold");
+				jq('#hesdf').addClass("text14RedBold");
 				jq('#OWNwppns1').val("?");
 			}else if(target==CITY_OWNwppns2){
-				jq('#hesdt').addClass("text11RedBold");
+				jq('#hesdt').addClass("text14RedBold");
 				jq('#OWNwppns2').val("?");
 			}/*else if(target==CITY_OWNwppns3){
 				jq('#hesdff').addClass("text11RedBold");
@@ -2016,7 +2016,7 @@
   		  "scrollCollapse":  true,
   		  "columnDefs": [{ "type": "num", "targets": 0 }],
   		  "lengthMenu": [ 100, 300, 400, 900],
-  		  //"paging" : false,
+  		  "tabIndex": -1,
   		  "info" : false,
   		  "language": { "url": getLanguage(lang) }
   	  });
