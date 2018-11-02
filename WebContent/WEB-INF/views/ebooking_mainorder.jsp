@@ -343,7 +343,7 @@
 						 		<tr>
 					 				<td class="text14">&nbsp;<font class="text16RedBold" >*</font><span title="henas"><spring:message code="systema.ebooking.orders.form.update.label.shipper.name"/></span>
 					 					<%-- <c:if test="${model.record.fakBetExists}"> --%>
-						 					<a href="javascript:void(0);" onClick="window.open('ebooking_childwindow_customer_addresses.do?action=doFind&ctype=s&wkundnr=${model.record.trknfa}&wkundnvn=${model.record.trknfaNavn}','customerWin','top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no')">
+						 					<a href="javascript:void(0);" onClick="window.open('ebooking_childwindow_customer_addresses.do?action=doFind&ctype=s&wkundnr=${model.record.trknfa}&wkundnvn=${model.record.trknfaNavn}','customerWin','top=80px,left=250px,height=950px,width=900px,scrollbars=no,status=no,location=no')">
 		 										<img id="imgShipperSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 									</a>
 	 									<%-- </c:if> --%>
@@ -511,7 +511,7 @@
 						 		<tr>
 					 				<td class="text14">&nbsp;<font class="text16RedBold" >*</font><span title="henak"><spring:message code="systema.ebooking.orders.form.update.label.consignee.name"/></span>
 					 					<%-- <c:if test="${model.record.fakBetExists}"> --%>
-						 					<a href="javascript:void(0);" onClick="window.open('ebooking_childwindow_customer_addresses.do?action=doFind&ctype=c&wkundnr=${user.custNr}','customerWin','top=300px,left=150px,height=800px,width=900px,scrollbars=no,status=no,location=no')">
+						 					<a href="javascript:void(0);" onClick="window.open('ebooking_childwindow_customer_addresses.do?action=doFind&ctype=c&wkundnr=${user.custNr}','customerWin','top=80px,left=250px,height=950px,width=900px,scrollbars=no,status=no,location=no')">
 		 										<img id="imgConsigneeSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 									</a>
 	 									<%-- </c:if> --%>

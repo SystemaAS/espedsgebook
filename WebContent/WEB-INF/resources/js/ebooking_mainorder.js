@@ -555,6 +555,19 @@
 							}
 							//
 							jq('#wvakure').removeClass( "isa_error" );
+							//auto fill HESDF
+							if(jq('#heads3').val()!=''){
+				  				var tmp = jq('#heads3').val();
+				  				var SPACE = " ";
+				  				var n = tmp.indexOf(SPACE);
+				  				//default
+				  				var postNr = tmp.substring(0,4);
+				  				//in case other than default
+				  				if(n > -1){
+				  					postNr = tmp.substring(0, n);
+				  				}
+				  				jq('#hesdf').val(postNr);
+				  			}
 		    			//}	
 					}else{
 						//init fields
@@ -615,6 +628,21 @@
 							}
 							
 							jq('#wvakure2').removeClass( "isa_error" );
+							//auto fill HESDT
+							if(jq('#headk3').val()!=''){
+				  				var tmp = jq('#headk3').val();
+				  				var SPACE = " ";
+				  				var n = tmp.indexOf(SPACE);
+				  				//default
+				  				var postNr = tmp.substring(0,4);
+				  				//in case other than default
+				  				if(n > -1){
+				  					postNr = tmp.substring(0, n);
+				  				}
+				  				
+				  				jq('#hesdt').val(postNr);
+				  			}
+
 		    			//}	
 					}else{
 						//init fields
