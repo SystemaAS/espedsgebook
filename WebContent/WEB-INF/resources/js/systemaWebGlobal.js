@@ -1,7 +1,7 @@
 	var langMap = {
 			   'EN' : 'English',
 			   'DK' : 'Danish',
-			   'SE' : 'Swedish',
+			   'SV' : 'Swedish',
 			   'NO' : 'Norwegian-Bokmal'
 	}
 	//for setting user lang to datatables
