@@ -6,7 +6,6 @@
 	<head>
 		<link href="/espedsg2/resources/${user.cssEspedsg}?ver=${user.versionEspedsg}" rel="stylesheet" type="text/css"/>
 		<link href="resources/jquery.calculator.css" rel="stylesheet" type="text/css"/>
-		<link type="text/css" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/overcast/jquery-ui.css" rel="stylesheet">
 		
 		<%-- datatables grid CSS --%>
 		<link type="text/css" href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css" rel="stylesheet">
@@ -21,6 +20,13 @@
 				<link rel="SHORTCUT ICON" type="image/png" href="resources/images/systema_logo.png"></link>
 			</c:otherwise>
 		</c:choose>
+		
+		<%-- for dialog popup --%>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+		<style type = "text/css">
+			.ui-datepicker { font-size:10pt;}
+			.ui-dialog{font-size:10pt;}
+		</style>
 		
 		<%-- <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"> --%>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -183,7 +189,7 @@
 				    			</a>
 				    			<font color="#FFFFFF"; style="font-weight: bold;">&nbsp;&nbsp;|&nbsp;</font>
 				    			<font class="text14LightGreen" style="cursor:pointer;" onClick="showPop('versionInfo');">${user.versionSpring}&nbsp;</font>
-				    			<div class="text12" style="position: relative;display: inline;" align="left">
+				    				<div class="text12" style="position: relative;display: inline;" align="left">
 									<span style="position:absolute; left:-150px; top:3px;" id="versionInfo" class="popupWithInputText"  >
 						           		<div class="text12" align="left">
 						           			<b>${user.versionEspedsg}</b>
