@@ -155,9 +155,11 @@
   //-------------------
   jq(document).ready(function() {
 	 var lang = jq('#language').val(); 
+	 
     //init table (no ajax, no columns since the payload is already there by means of HTML produced on the back-end)
 	jq('#openOrders').dataTable( {
 	  "jQueryUI": false,
+	  "searchHighlight": true,
 	  "dom": '<"top"lf>t<"bottom"ip><"clear">',
 	  "scrollY":   "700px",
 	  "scrollCollapse":  	true,

@@ -395,6 +395,7 @@
       //table [PostNr From]
 	  //--------------------------
 	  jq('#postNrFromList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -408,6 +409,7 @@
 	  //tables [PostNr To]
 	  //-----------------------
 	  jq('#postNrToList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -421,6 +423,7 @@
 	  //tables [Customer No.]
 	  //-----------------------
 	  jq('#customerList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -433,6 +436,7 @@
 	  
 	  //related table Customer Addresses
 	  jq('#customerAddressesList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fi>rt<"bottom"p><"clear">',
 		  //"pageLength": 15,
 		  //"lengthMenu": [ 50, 75, 100 ],
@@ -452,6 +456,7 @@
 	  //tables [Load/Unload places]
 	  //----------------------------
 	  jq('#loadUnloadPlacesList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -465,6 +470,7 @@
 	  //tables [packing codes]
 	  //----------------------------
 	  jq('#packingCodesList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
@@ -478,6 +484,7 @@
 	  //tables [dangerous goods]
 	  //----------------------------
 	  jq('#dangerousGoodsList').dataTable( {
+		  "searchHighlight": true,
 		  "dom": '<"top"fli>rt<"bottom"p><"clear">',
 		  "lengthMenu": [ 50, 75, 100 ],
 		  "language": { "url": getLanguage(lang) }
