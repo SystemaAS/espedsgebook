@@ -252,7 +252,8 @@
 					 				--%>
 					 				<td align="left" class="text14Bold" >
 					 					&nbsp;&nbsp;&nbsp;<span title="xfakBet"><spring:message code="systema.ebooking.orders.form.update.label.fraktbetaler"/></span>
-					 				</td>
+					 					
+							        </td>
 					 				<td class="text14">
 										<select class="selectMediumBlueE2" <c:if test="${not model.record.fakBetExists}"> disabled </c:if> name="xfakBet" id="xfakBet">
 											<option value=''>-velg-</option>
@@ -266,7 +267,15 @@
 											<input type="hidden" name="xfakBet" id="xfakBet" value="${model.record.xfakBet}" >
 										</c:if>
 					 				</td>
-					 				 
+					 				<%--
+					 				<td align="left" class="text14Bold" >
+					 					&nbsp;&nbsp;&nbsp;
+					 					<a href="javascript:void(0);" onClick="window.open('/espedsg2/sporringoppdraggate.do?lang=NO&cw=true','opdWin','top=100px,left=200px,height=900px,width=1500px,scrollbars=no,status=no,location=no')">
+					 						TEST till Spørr.Oppd.
+					 						<img id="imgOpdSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
+					 					</a>
+							        </td>
+							        --%> 
 					 			</tr>
 					 			
 							</table>
