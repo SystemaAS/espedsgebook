@@ -665,7 +665,7 @@ public class EbookingMainOrderHeaderController {
 	 * @param orderRecord
 	 */
 	private void populateMessageNotes(SystemaWebUser appUser, JsonMainOrderHeaderRecord orderRecord){
-		
+		logger.info("Inside populateMessageNotes");
 		Collection<JsonMainOrderHeaderMessageNoteRecord> messageNoteConsignee = null;
 		Collection<JsonMainOrderHeaderMessageNoteRecord> messageNoteCarrier = null;
 		Collection<JsonMainOrderHeaderMessageNoteRecord> messageNoteInternal = null;
@@ -1101,8 +1101,8 @@ public class EbookingMainOrderHeaderController {
 		if(fraktbrevList==null || fraktbrevList.size()<EbookingConstants.CONSTANT_TOTAL_NUMBER_OF_ORDER_LINES){
 			int start = fraktbrevList.size();
 			for(int i = ++start;i<=EbookingConstants.CONSTANT_TOTAL_NUMBER_OF_ORDER_LINES;i++){
-				//logger.info("#########################:" + i);
 				fraktbrevList.add(new JsonMainOrderHeaderFraktbrevRecord());
+				//logger.info("#########################:" + i);
 			}
 		}
 	}
