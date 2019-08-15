@@ -13,6 +13,7 @@ import no.systema.main.service.UrlCgiProxyService;
 import no.systema.ebooking.url.store.EbookingUrlDataStore;
 import no.systema.ebooking.util.EbookingConstants;
 import no.systema.ebooking.util.manager.CodeDropDownMgr;
+import no.systema.ebooking.model.jsonjackson.JsonMainOrderHeaderRecord;
 import no.systema.ebooking.model.jsonjackson.codes.JsonEbookingCodeContainer;
 import no.systema.ebooking.model.jsonjackson.codes.JsonEbookingCodeRecord;
 import no.systema.ebooking.model.jsonjackson.codes.JsonEbookingFrankaturContainer;
@@ -103,15 +104,18 @@ public class CodeDropDownMgr {
 	 * @param appUser
 	 */
 	public void populateHtmlDropDownsFromJsonStringFrankatur(UrlCgiProxyService urlCgiProxyService, EbookingDropDownListPopulationService listPopulationService,
-		Map model, SystemaWebUser appUser){
+		Map model, SystemaWebUser appUser, String newModul1_2){
 		//fill in html lists here
 		try{
 			String URL = EbookingUrlDataStore.EBOOKING_GENERAL_FRANKATUR_INCOTERMS_URL;
 			StringBuffer urlRequestParamsKeys = new StringBuffer();
 			urlRequestParamsKeys.append("user=" + appUser.getUser());
+			urlRequestParamsKeys.append("&modul1_2=" + newModul1_2);
 			
 			//Now build the payload and send to the back end via the drop down service
-			//logger.info("URL:" + URL);
+			logger.info("URL:" + URL);
+			logger.info("PARAMS:" + urlRequestParamsKeys.toString());
+			
 			String utfPayload = urlCgiProxyService.getJsonContent(URL, urlRequestParamsKeys.toString());
 			//logger.info(utfPayload);
 			JsonEbookingFrankaturContainer frankaturContainer = listPopulationService.getFrankaturContainer(utfPayload);
@@ -136,17 +140,20 @@ public class CodeDropDownMgr {
 	 * @param appUser
 	 */
 	public void populateHtmlDropDownsFromJsonStringOppdragsType(UrlCgiProxyService urlCgiProxyService, EbookingDropDownListPopulationService listPopulationService,
-			Map model, SystemaWebUser appUser){
+			Map model, SystemaWebUser appUser, String newModul1_2){
 			//fill in html lists here
 			try{
 				String URL = EbookingUrlDataStore.EBOOKING_GENERAL_OPPDRAGSTYPE_URL;
 				StringBuffer urlRequestParamsKeys = new StringBuffer();
 				urlRequestParamsKeys.append("user=" + appUser.getUser());
+				urlRequestParamsKeys.append("&modul1_2=" + newModul1_2);
 				
 				//Now build the payload and send to the back end via the drop down service
 				logger.info("URL:" + URL);
+				logger.info("PARAMS:" + urlRequestParamsKeys.toString());
+				
 				String utfPayload = urlCgiProxyService.getJsonContent(URL, urlRequestParamsKeys.toString());
-				logger.info(utfPayload);
+				//logger.info(utfPayload);
 				JsonEbookingOppdragTypeContainer container = listPopulationService.getOppdragTypeContainer(utfPayload);
 				
 				//Take some exception into consideration here or run the default to populate the final list

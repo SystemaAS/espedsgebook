@@ -263,9 +263,11 @@ public class EbookingMainOrderHeaderController {
 			//--------------
 			//Fetch record
 			//--------------
+			String newModul1_2 = recordToValidate.getHeur();
 			if(isValidRecord){
 				logger.info("UNIK:" + recordToValidate.getHeunik());
 				JsonMainOrderHeaderRecord headerOrderRecord = this.getOrderRecord(appUser, model, orderTypes, recordToValidate.getHereff(), recordToValidate.getHeunik());
+				newModul1_2 = headerOrderRecord.getHeur();
 				//check if user is allowed to choose invoicee (fakturaBetalare)
 				this.setFakturaBetalareFlag(headerOrderRecord, appUser);
 				//populate all message notes
@@ -294,7 +296,7 @@ public class EbookingMainOrderHeaderController {
 				model.put(EbookingConstants.DOMAIN_RECORD, headerOrderRecord);
 			}
 			//get dropdowns
-			this.setCodeDropDownMgr(appUser, model);
+			this.setCodeDropDownMgr(appUser, model, newModul1_2);
 			this.setDropDownsFromFiles(model);
 			//populate model
 			if(action==null || "".equals(action)){
@@ -1237,11 +1239,11 @@ public class EbookingMainOrderHeaderController {
 	 * @param appUser
 	 * @param model
 	 */
-	private void setCodeDropDownMgr(SystemaWebUser appUser, Map model){
+	private void setCodeDropDownMgr(SystemaWebUser appUser, Map model, String newModul1_2){
 		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonString(this.urlCgiProxyService, this.ebookingDropDownListPopulationService,
 				 model,appUser,CodeDropDownMgr.CODE_2_COUNTRY, null, null);
-		this.codeDropDownMgr.populateHtmlDropDownsFromJsonStringFrankatur(this.urlCgiProxyService, this.ebookingDropDownListPopulationService, model, appUser);
-		this.codeDropDownMgr.populateHtmlDropDownsFromJsonStringOppdragsType(this.urlCgiProxyService, this.ebookingDropDownListPopulationService, model, appUser);
+		this.codeDropDownMgr.populateHtmlDropDownsFromJsonStringFrankatur(this.urlCgiProxyService, this.ebookingDropDownListPopulationService, model, appUser, newModul1_2);
+		this.codeDropDownMgr.populateHtmlDropDownsFromJsonStringOppdragsType(this.urlCgiProxyService, this.ebookingDropDownListPopulationService, model, appUser, newModul1_2);
 	}
 	
 	private void setDropDownsFromFiles(Map<String, Object> model){
