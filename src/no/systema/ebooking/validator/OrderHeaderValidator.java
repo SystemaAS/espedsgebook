@@ -91,7 +91,12 @@ public class OrderHeaderValidator implements Validator {
 			
 			//Fakturapart
 			if( (record.getHeknsf() !=null && !"".equals(record.getHeknsf())) && (record.getHeknkf()!=null && !"".equals(record.getHeknkf())) ){
-				errors.rejectValue("heknsf", "systema.ebooking.orders.form.update.error.rule.both.invoicees.invalid");
+				//REMOVED: should be allowed (JOVOs mail: 2019-08-20) --> errors.rejectValue("heknsf", "systema.ebooking.orders.form.update.error.rule.both.invoicees.invalid");
+				if( strMgr.isNotNull(record.getHerfa()) && strMgr.isNotNull(record.getHerfk()) ){
+					//Ok = valid
+				}else{
+					errors.rejectValue("herfa", "systema.ebooking.orders.form.update.error.rule.both.senderAndReceiverRefs.mustExist");
+				}
 			}else{
 				if( (record.getHeknsf() != null && !"".equals(record.getHeknsf())) || (record.getHeknkf() != null && !"".equals(record.getHeknkf())) ){
 					//OK (at least one)
@@ -227,9 +232,10 @@ public class OrderHeaderValidator implements Validator {
 	 */
 	private boolean isInvoiceeOnSeller(JsonMainOrderHeaderRecord record){
 		boolean retval = false;
+		/*
 		if( (record.getTrknfa().equals(record.getHekns())) || (record.getTrknfa().equals(record.getHeknsf())) ){
 			retval = true;
-		}
+		}*/
 		if( (record.getHekns()!=null && !"".equals(record.getHekns())) && (record.getHeknsf()!=null && !"".equals(record.getHeknsf())) ){
 			retval = true;
 		}
@@ -243,9 +249,10 @@ public class OrderHeaderValidator implements Validator {
 	 */
 	private boolean isInvoiceeOnReceiver(JsonMainOrderHeaderRecord record){
 		boolean retval = false;
+		/*
 		if( (record.getTrknfa().equals(record.getHeknk())) || (record.getTrknfa().equals(record.getHeknkf())) ){
 			retval = true;
-		}
+		}*/
 		if( (record.getHeknk()!=null && !"".equals(record.getHeknk())) && (record.getHeknkf()!=null && !"".equals(record.getHeknkf())) ){
 			retval = true;
 		}
