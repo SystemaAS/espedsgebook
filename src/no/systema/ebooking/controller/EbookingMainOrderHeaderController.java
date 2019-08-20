@@ -263,11 +263,11 @@ public class EbookingMainOrderHeaderController {
 			//--------------
 			//Fetch record
 			//--------------
-			String newModul1_2 = recordToValidate.getHeur();
+			String modul1_2 = recordToValidate.getModul1_2();
+			logger.info("modul1_2:" + modul1_2);
 			if(isValidRecord){
 				logger.info("UNIK:" + recordToValidate.getHeunik());
 				JsonMainOrderHeaderRecord headerOrderRecord = this.getOrderRecord(appUser, model, orderTypes, recordToValidate.getHereff(), recordToValidate.getHeunik());
-				newModul1_2 = headerOrderRecord.getHeur();
 				//check if user is allowed to choose invoicee (fakturaBetalare)
 				this.setFakturaBetalareFlag(headerOrderRecord, appUser);
 				//populate all message notes
@@ -292,11 +292,14 @@ public class EbookingMainOrderHeaderController {
 				}
 				//set always status as in list (since we do not get this value from back-end)
 				headerOrderRecord.setStatus(orderStatus);
+				if(strMgr.isNull(modul1_2)){
+					modul1_2 = headerOrderRecord.getModul1_2();
+				}
 				//domain objects
 				model.put(EbookingConstants.DOMAIN_RECORD, headerOrderRecord);
 			}
 			//get dropdowns
-			this.setCodeDropDownMgr(appUser, model, newModul1_2);
+			this.setCodeDropDownMgr(appUser, model, modul1_2);
 			this.setDropDownsFromFiles(model);
 			//populate model
 			if(action==null || "".equals(action)){
@@ -1239,11 +1242,11 @@ public class EbookingMainOrderHeaderController {
 	 * @param appUser
 	 * @param model
 	 */
-	private void setCodeDropDownMgr(SystemaWebUser appUser, Map model, String newModul1_2){
+	private void setCodeDropDownMgr(SystemaWebUser appUser, Map model, String modul1_2){
 		this.codeDropDownMgr.populateCodesHtmlDropDownsFromJsonString(this.urlCgiProxyService, this.ebookingDropDownListPopulationService,
 				 model,appUser,CodeDropDownMgr.CODE_2_COUNTRY, null, null);
-		this.codeDropDownMgr.populateHtmlDropDownsFromJsonStringFrankatur(this.urlCgiProxyService, this.ebookingDropDownListPopulationService, model, appUser, newModul1_2);
-		this.codeDropDownMgr.populateHtmlDropDownsFromJsonStringOppdragsType(this.urlCgiProxyService, this.ebookingDropDownListPopulationService, model, appUser, newModul1_2);
+		this.codeDropDownMgr.populateHtmlDropDownsFromJsonStringFrankatur(this.urlCgiProxyService, this.ebookingDropDownListPopulationService, model, appUser, modul1_2);
+		this.codeDropDownMgr.populateHtmlDropDownsFromJsonStringOppdragsType(this.urlCgiProxyService, this.ebookingDropDownListPopulationService, model, appUser, modul1_2);
 	}
 	
 	private void setDropDownsFromFiles(Map<String, Object> model){

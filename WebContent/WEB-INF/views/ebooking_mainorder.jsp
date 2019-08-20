@@ -234,7 +234,8 @@
 					<input type="hidden" name="status" id="status" value='${model.record.status}'>
 					<input type="hidden" name="action" id="action" value='doUpdate'>
 					<input type="hidden" name="selectedType" id="selectedType" value='${model.selectedType}'>
-
+					<input type="hidden" name="modul1_2" id="modul1_2" value='${model.record.modul1_2}'>
+					
 					<input type="hidden" name="messageNoteConsigneeOriginal" id="messageNoteConsigneeOriginal" value='${model.record.messageNoteConsigneeOriginal}'>
 					<input type="hidden" name="messageNoteCarrierOriginal" id="messageNoteCarrierOriginal" value='${model.record.messageNoteCarrierOriginal}'>
 					<input type="hidden" name="messageNoteInternalOriginal" id="messageNoteInternalOriginal" value='${model.record.messageNoteInternalOriginal}'>

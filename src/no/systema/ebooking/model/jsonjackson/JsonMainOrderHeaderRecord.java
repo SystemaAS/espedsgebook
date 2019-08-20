@@ -46,6 +46,10 @@ public class JsonMainOrderHeaderRecord extends JsonAbstractGrandFatherRecord {
 	public void setHeavd(String value){ this.heavd = value;}
 	public String getHeavd(){ return this.heavd; }
 	
+	private String modul1_2 = null;
+	public void setModul1_2(String value){ this.modul1_2 = value;}
+	public String getModul1_2(){ return this.modul1_2; }
+	
 	private String heopd = null;
 	public void setHeopd(String value){ this.heopd = value;}
 	public String getHeopd(){ return this.heopd; }
