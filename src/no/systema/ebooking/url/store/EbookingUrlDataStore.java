@@ -1,5 +1,6 @@
 package no.systema.ebooking.url.store;
 
+import no.systema.main.model.UrlDataStoreAnnotationForField;
 import no.systema.main.util.AppConstants;
 
 /**
@@ -16,10 +17,12 @@ public class EbookingUrlDataStore {
 	//[1] FETCH MAIN LOG LIST
 	//----------------------------
 	//http://gw.systema.no/sycgip/TBOK001R.pgm?user=OSCAR
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderListController - ebooking_mainorderlist.do ", description=" --> EBOOKING_BASE_MAIN_ORDER_LIST_URL - main list")
 	static public String EBOOKING_BASE_MAIN_ORDER_LIST_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TBOK001R.pgm";
 	
 	//http://gw.systema.no/sycgip/TBOK002R.pgm?user=OSCAR&mode=G&HEUNIK=&HEREFF=&newavd=80&newmodul=H&newmodul=E&newlandkode=DK&newsidesk=S&newtext=
 	//mode=G Get med &HEUNIK / &HEREFF=blank   betyr å hente defaulter   MEN  &HEUNIK / &HEREFF ulik blank = hente en konkret sak (for visning/edit mm..)
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_BASE_FETCH_SPECIFIC_ORDER_URL - specific order")
 	static public String EBOOKING_BASE_FETCH_SPECIFIC_ORDER_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TBOK002R.pgm";
 	
 	
@@ -35,37 +38,49 @@ public class EbookingUrlDataStore {
 	//(og G=Get med &HEUNIK / &HEREFF=blank   betyr å hente defaulter   MEN  &HEUNIK / &HEREFF ulik blank = hente en konkret sak (for visning/edit mm..)
 	//----------------------
 	//http://gw.systema.no/sycgip/TBOK002R.pgm?user=OSCAR&mode=G&HEUNIK=&HEREFF=&newavd=80&newmodul=H&newmodul=E&newlandkode=DK&newsidesk=S&newtext=
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_BASE_UPDATE_SPECIFIC_ORDER_URL - update specific order")
 	static public String EBOOKING_BASE_UPDATE_SPECIFIC_ORDER_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TBOK002R.pgm";
 	
 	//[2.1] Message Note management (Consignee, Carrier, Internal)
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_BASE_WORKFLOW_FETCH_MAIN_ORDER_MESSAGE_NOTE_URL - message note")
 	static public String EBOOKING_BASE_WORKFLOW_FETCH_MAIN_ORDER_MESSAGE_NOTE_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJGE08R.pgm";
 	//http://gw.systema.no/sycgip/TJGE08R.pgm?user=OSCAR&unik=75&reff=11&part=R (R=Receiver, G=Carrier, Blank=internal melding)
 	//[2.2] Fraktbrev section (order lines)
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_BASE_WORKFLOW_FETCH_LIST_MAIN_ORDER_FRAKTBREV_URL - list of item lines")
 	static public String EBOOKING_BASE_WORKFLOW_FETCH_LIST_MAIN_ORDER_FRAKTBREV_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJGE21R.pgm"; 	
 	//http://gw.systema.no/sycgip/TJGE21R.pgm?user=OSCAR&unik=10001206&reff=TARZAN%20W&fbn=1
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_BASE_WORKFLOW_FETCH_LINE_MAIN_ORDER_FRAKTBREV_URL - fetch item line")
 	static public String EBOOKING_BASE_WORKFLOW_FETCH_LINE_MAIN_ORDER_FRAKTBREV_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJGE22R.pgm"; 	
 	//http://gw.systema.no/sycgip/TJGE22R.pgm?user=OSCAR&unik=10001201&reff=TARZAN%20X&fbn=1&lin=1
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_BASE_WORKFLOW_UPDATE_LINE_MAIN_ORDER_FRAKTBREV_URL - update item line")
 	static public String EBOOKING_BASE_WORKFLOW_UPDATE_LINE_MAIN_ORDER_FRAKTBREV_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJGE23R.pgm";
+	
 	//http://gw.systema.no/sycgip/TJGE23R.pgm?user=OSCAR&unik=10001206&reff=TARZAN W&fbn=1&lin=3&mode=A&...
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_BASE_WORKFLOW_VALIDATE_LINE_MAIN_ORDER_FRAKTBREV_URL - validate item line")
 	static public String EBOOKING_BASE_WORKFLOW_VALIDATE_LINE_MAIN_ORDER_FRAKTBREV_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJGE23RV.pgm";
 	//http://gw.systema.no/sycgip/TJGE23RV.pgm?user=JOVO&avd=75&opd=19&fmmrk1=&fvant=1&fvpakn=&fvvt=TEST&fvvkt=&fvvol=&fvlm=&fvlm2=&fvlen=&fvbrd=&fvhoy=&ffunnr=1234&ffemb=&ffantk=1&ffante=1&ffenh=KGM
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_BASE_WORKFLOW_VALIDATE_LINE_MAIN_ORDER_FRAKTBREV_2_URL - validate_2 item line")
 	static public String EBOOKING_BASE_WORKFLOW_VALIDATE_LINE_MAIN_ORDER_FRAKTBREV_2_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJGE23RV2.pgm";
 	//http://gw.systema.no/sycgip/TJGE23RV2.pgm?user=JOVO&avd=75&opdtyp=OX&fmmrk1=&fvant=2&fvpakn=&fvvt=TEST&fvvkt=1000&fvlen=220&fvbrd=220&fvhoy=120&fvvol=&fvlm=&fvlm2=&ffunr=1234&ffemb=&ffantk=1&ffante=1&ffenh=KGM
 	
 	//Fetch archive docs based on heunik
 	//http://gw.systema.no/sycgip/TJETUR02DO.pgm?user=OSCAR&wsunik=10001215
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_BASE_WORKFLOW_FETCH_MAIN_ORDER_UPLOADED_DOCS_URL - archive lines ")
 	static public String EBOOKING_BASE_WORKFLOW_FETCH_MAIN_ORDER_UPLOADED_DOCS_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJETUR02DO.pgm";
 	
 	//http://gw.systema.no/sycgip/TJETUR07A.pgm?user=OSCAR&wsdokn=tarzan.jpg
 	//{ "user": "OSCAR", "wsdokn": "tarzan.jpg","valids": "Y", "tmpdir": "/pdf/tmp/", "errMsg": "", "chksuffix": [] } 
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_UPLOAD_FILE_VALIDATION_URL - upload file validation ")
 	static public String EBOOKING_UPLOAD_FILE_VALIDATION_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJETUR07A.pgm";	
 	//http://gw.systema.no/sycgip/TJETUR07B.pgm?user=JOVO&wstur=75000002&wsdokn=/pdf/tmp/ukkulele.jpg&wsalias=trumpet.jpg 
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_UPLOAD_FILE_AFTER_VALIDATION_APPROVAL_URL - upload file validation ")
 	static public String EBOOKING_UPLOAD_FILE_AFTER_VALIDATION_APPROVAL_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJETUR07B.pgm";	
 	
 	//------------
 	//SEND ORDER
 	//------------
 	//http://gw.systema.no/sycgip/TBOK009R.pgm?user=OSCAR&HEUNIK=10001176
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_BASE_SEND_SPECIFIC_ORDER_URL - send order ")
 	static public String EBOOKING_BASE_SEND_SPECIFIC_ORDER_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TBOK009R.pgm";
 	
 
@@ -74,29 +89,36 @@ public class EbookingUrlDataStore {
 	//----------------
 	//(FRA)-->http://gw.systema.no/sycgip/TJINQSTED.pgm?user=JOVO&varlk=FRALK&VARKOD=FRA&SOKLK=NO&WSKUNPA=A (A, P eller blank) 
 	//(TIL)-->http://gw.systema.no/sycgip/TJINQSTED.pgm?user=JOVO&varlk=TILLK&VARKOD=TIL&SOKLK=NO&
+	@UrlDataStoreAnnotationForField (name="@EbookingControllerChildWindow - ebooking_childwindow_postalcodes.do ", description=" --> EBOOKING_BASE_CHILDWINDOW_POSTAL_CODES_URL - postal codes ")
 	static public String EBOOKING_BASE_CHILDWINDOW_POSTAL_CODES_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJINQSTED.pgm";
 	
 	
 	//Fakturakunde - replaces the good old fashioned customer search(not applicable in eBooking)
+	@UrlDataStoreAnnotationForField (name="@EbookingControllerChildWindow - ebooking_childwindow_customer.do ", description=" --> EBOOKING_BASE_CHILDWINDOW_CUSTOMER_URL - customer records ")
 	static public String EBOOKING_BASE_CHILDWINDOW_CUSTOMER_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJINQFKU.pgm";
 	
 	//Fakturakunde adresser
 	//http://gw.systema.no/sycgip/TJINQVADR.pgm?user=JOVO&wkundnr=7031&wvadrnr=1 
 	//http://gw.systema.no/sycgip/TJINQVADR.pgm?user=JOVO&wkundnr=7031&wvadrna=A (Alfa search exact)
+	@UrlDataStoreAnnotationForField (name="@EbookingControllerChildWindow - ebooking_childwindow_customer.do ", description=" --> EBOOKING_BASE_CHILDWINDOW_CUSTOMER_DELIVERY_ADDRESS_URL - delivery addresses records ")
 	static public String EBOOKING_BASE_CHILDWINDOW_CUSTOMER_DELIVERY_ADDRESS_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJINQVADR.pgm";
 	
 	//http://gw.systema.no/sycgip/TJAUDVADR.pgm?user=OSCAR&wkundnr=70&wvadrnr=&mode=A&vadrna=TEST22222&vadrn1=Adresse1&vadrn2=Adresse2&vadrn3=3014%20Drammen&vakure=KN123&vatlf=&vafax=&vamail=janottar@systema.no
+	@UrlDataStoreAnnotationForField (name="@EbookingControllerChildWindow - ebooking_childwindow_customer.do ", description=" --> EBOOKING_BASE_UPDATE_CHILDWINDOW_CUSTOMER_DELIVERY_ADDRESS_URL - update customer delivery add. ")
 	static public String EBOOKING_BASE_UPDATE_CHILDWINDOW_CUSTOMER_DELIVERY_ADDRESS_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJAUDVADR.pgm";
 	
 	
 	//Postal codes
+	@UrlDataStoreAnnotationForField (name="@EbookingControllerChildWindow - ebooking_childwindow_loadunloadplaces.do ", description=" --> EBOOKING_BASE_CHILDWINDOW_LOAD_UNLOAD_PLACES_URL -  ")
 	static public String EBOOKING_BASE_CHILDWINDOW_LOAD_UNLOAD_PLACES_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJINQSDL.pgm";
 	//http://gw.systema.no/sycgip/TJINQSDL.pgm?user=JOVO(return all)
 	//http://gw.systema.no/sycgip/TJINQSDL.pgm?user=JOVO&soknvn=T... etc
+	@UrlDataStoreAnnotationForField (name="@EbookingControllerChildWindow - ebooking_childwindow_packingcodes.do ", description=" --> EBOOKING_BASE_CHILDWINDOW_PACKING_CODES_URL -  ")
 	static public String EBOOKING_BASE_CHILDWINDOW_PACKING_CODES_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJINQFORP.pgm";
 	//http://gw.systema.no/sycgip/TJINQFORP.pgm?user=JOVO&kode=ABCD&Getval=J&fullInfo=J
 	//http://gw.systema.no/sycgip/TJINQFORP.pgm?user=JOVO&kode=A (sök alla fom A)
 	
+	@UrlDataStoreAnnotationForField (name="@EbookingControllerChildWindow - ebooking_childwindow_dangerousgoods.do ", description=" --> EBOOKING_BASE_CHILDWINDOW_DANGEROUS_GOODS_URL -  ")
 	static public String EBOOKING_BASE_CHILDWINDOW_DANGEROUS_GOODS_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJINQUNNR.pgm";
 	//Note: gir alle poster (max 100)  fra og med unnr 1950 ved &fullinfo  ulik J returneres kun unnr /emb.gruppe/ index og kort tekst (max 50 lang) 
 	//[1]http://gw.systema.no/sycgip/TJINQUNNR.pgm?user=JOVO&unnr=1950=&embg=&indx=&getval=&fullinfo=J
@@ -117,22 +139,25 @@ public class EbookingUrlDataStore {
 	//---------------------------------------------------
 	//[2] GENERAL CODES - for country (AS400 from TVINN) 
 	//---------------------------------------------------
+	@UrlDataStoreAnnotationForField (name="@EbookingMainOrderHeaderController - ebooking_mainorder.do ", description=" --> EBOOKING_CODES_URL - country codes")
 	static public String EBOOKING_CODES_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TNOG005R.pgm"; 
 	//http://gw.systema.no/sycgip/TNOG005R.pgm?user=OSCAR&typ=2 //country list
 	
 	//---------------------------------------------------
 	//[1.1] GENERAL FUNCTIONS eg.(signature, other...) 
 	//---------------------------------------------------
-	static public String EBOOKING_GENERAL_SIGN_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJGE24R.pgm"; 
+	//@UrlDataStoreAnnotationForField (name="@EbookingControllerChildWindow - ebooking_childwindow_dangerousgoods.do ", description=" --> EBOOKING_GENERAL_SIGN_URL - signatures ")
+	//static public String EBOOKING_GENERAL_SIGN_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJGE24R.pgm"; 
 	//http://gw.systema.no/sycgip/TJGE24R.pgm?user=JOVO	
-	
+	@UrlDataStoreAnnotationForField (name="@? - CodeDropDownMgr ", description=" --> EBOOKING_GENERAL_OPPDRAGSTYPE_URL - opddtype ")
 	static public String EBOOKING_GENERAL_OPPDRAGSTYPE_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJINQOTYB.pgm";
 	//http://gw.systema.no/sycgip/TJINQOTYB.pgm?user=JOVO
 	
+	@UrlDataStoreAnnotationForField (name="@? - CodeDropDownMgr ", description=" --> EBOOKING_GENERAL_FRANKATUR_INCOTERMS_URL - frankatur ")
 	static public String EBOOKING_GENERAL_FRANKATUR_INCOTERMS_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJINQFRAB.pgm";
 	//http://gw.systema.no/sycgip/TJINQFRAB.pgm?user=JOVO
 	
-	static public String EBOOKING_GENERAL_TRACK_AND_TRACE_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJGE002.pgm";
+	//static public String EBOOKING_GENERAL_TRACK_AND_TRACE_URL = AppConstants.HTTP_ROOT_CGI + "/sycgip/TJGE002.pgm";
 	//http://gw.systema.no/sycgip/TJGE002.pgm?user=JOVO&avd=75&opd=19
 	
 	
