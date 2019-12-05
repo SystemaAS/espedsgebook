@@ -12,6 +12,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import java.net.URLEncoder;
+
+import no.systema.ebooking.util.manager.Log4jMgr;
 //application imports
 import no.systema.main.util.AppConstants;
 
@@ -36,6 +38,10 @@ public class LogoutController {
 		
 		
 		if (session!=null){ 
+			
+			Log4jMgr log4jMgr = new Log4jMgr();
+			log4jMgr.doLogoutLogger();
+			
             session.removeAttribute(AppConstants.SYSTEMA_WEB_USER_KEY);
             session.invalidate();
             logger.info("Session invalidated..." + Calendar.getInstance().getTime());       
