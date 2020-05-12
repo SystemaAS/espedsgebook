@@ -195,13 +195,22 @@ public class EbookingMainOrderListController {
 	    	logger.info("URL PARAMS: " + urlRequestParams);
 	    	
 	    	String rpgReturnPayload = this.urlCgiProxyService.getJsonContent(BASE_URL, urlRequestParams);
+	    	logger.warn(rpgReturnPayload);
 	    	logger.info(Calendar.getInstance().getTime() + " CGI-stop timestamp");
 	    	
 	    	rpgReturnResponseHandler.evaluateRpgResponseOnUpdate(rpgReturnPayload);
 	    	if(rpgReturnResponseHandler.getErrorMessage()!=null && !"".equals(rpgReturnResponseHandler.getErrorMessage())){
-	    		rpgReturnResponseHandler.setErrorMessage("[ERROR] FATAL on UPDATE: " + rpgReturnResponseHandler.getErrorMessage());
-	    		//this.setFatalError(model, rpgReturnResponseHandler, recordToValidate);
-	    		//isValidCreatedRecordTransactionOnRPG = false;
+	    		rpgReturnResponseHandler.setErrorMessage("[ERROR] FATAL on UPDATE: " + rpgReturnResponseHandler.getErrorMessage() + 
+	    				" -->Ordrenr: " + rpgReturnResponseHandler.getHeunik());
+	    		logger.info("[WARN] back end record on deleted. Just reload page ... ");
+	    		
+	    		successView = errorView;
+	    		this.setFatalError(model, rpgReturnResponseHandler, recordToValidate);
+	    		SearchFilterEbookingMainList filterDummy = new SearchFilterEbookingMainList();
+	    		Collection outputListOpenOrders = this.getListOpenOrders(appUser, filterDummy, model);
+	    		successView.addObject(EbookingConstants.DOMAIN_MODEL , model);
+	    		successView.addObject(EbookingConstants.DOMAIN_LIST_OPEN_ORDERS,outputListOpenOrders);
+	    		
 	    		
 	    	}else{
 	    		//Update successfully done!
@@ -346,6 +355,31 @@ public class EbookingMainOrderListController {
 	 */
 	private void setDomainObjectsInView(Map model, SearchFilterEbookingMainList record){
 		//SET HEADER RECORDS  (from RPG)
+		model.put(EbookingConstants.DOMAIN_RECORD, record);
+	}
+	
+	private void setFatalError(Map model, RpgReturnResponseHandler rpgReturnResponseHandler, JsonMainOrderHeaderRecord record){
+		logger.info(rpgReturnResponseHandler.getErrorMessage());
+		this.setAspectsInView(model, rpgReturnResponseHandler);
+		//No refresh on jsonRecord is done for the GUI (form fields). Must be implemented right here, if required. !!
+        this.setDomainObjectsInView(model, record);
+	}
+	
+	private void setAspectsInView (Map model, RpgReturnResponseHandler rpgReturnResponseHandler){
+		model.put(EbookingConstants.ASPECT_ERROR_MESSAGE, rpgReturnResponseHandler.getErrorMessage());
+		//extra error information
+		StringBuffer errorMetaInformation = new StringBuffer();
+		errorMetaInformation.append(rpgReturnResponseHandler.getUser());
+		errorMetaInformation.append(rpgReturnResponseHandler.getHereff());
+		model.put(EbookingConstants.ASPECT_ERROR_META_INFO, errorMetaInformation);
+	}
+	
+	/**
+	 * 
+	 * @param model
+	 * @param record
+	 */
+	private void setDomainObjectsInView(Map model, JsonMainOrderHeaderRecord record){
 		model.put(EbookingConstants.DOMAIN_RECORD, record);
 	}
 	

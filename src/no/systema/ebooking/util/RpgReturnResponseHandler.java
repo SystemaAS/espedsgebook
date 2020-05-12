@@ -59,7 +59,7 @@ public class RpgReturnResponseHandler {
 							String errorCode = keyValuePair[1];
 							if(errorCode!=null && !"".equals(errorCode.trim())){
 								this.errorMessage = errorCode ;
-								logger.info(this.errorMessage);
+								logger.warn(this.errorMessage);
 							}
 						}
 					}else if(keyValuePair[0].trim().equalsIgnoreCase("user")){
