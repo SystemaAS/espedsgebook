@@ -13,7 +13,7 @@
 	  var record = id.split('_');
 	  var prefix = record[0];
 	  var unikId = record[1]; 
-	  //alert(unikId);
+	 
 	  
 	  //jq(id).attr('target','_blank');  //not needed in order to avoid strange behavior in non-Chrome browsers... (example: Firefox pop-up blank tab in addition of the PDF tab ??)
 	  var userIP = jq("#userHttpJQueryDocRoot").val().replace("http://", "");
@@ -22,27 +22,71 @@
 		  var link = jq("#userHttpJQueryDocRoot").val() + '/sycgip/esop11fb.pgm?user=' + jq("#applicationUser").val() + '&curtur=' + unikId + '&UserIP=' + userIP;
 		  //alert(link);
 		  window.open(link, "printDocWinFb", "top=300px,left=50px,height=800px,width=900px,scrollbars=no,status=no,location=no");
-	  
+		  //refresh parent window
+		  setTimeout(refreshOrderListWindow, 4000);
+		  
 	  }else if(prefix.indexOf("cmr")>=0){
 		  var link = jq("#userHttpJQueryDocRoot").val() + '/sycgip/esop11cm.pgm?user=' + jq("#applicationUser").val() + '&curtur=' + unikId + '&UserIP=' + userIP;
 		  window.open(link, "printDocWinCm", "top=300px,left=50px,height=800px,width=900px,scrollbars=no,status=no,location=no");
-	  
+		  //refresh parent window
+		  setTimeout(refreshOrderListWindow, 4000);
+		  
 	  }else if(prefix.indexOf("merkPdf")>=0){
-		  var link = jq("#userHttpJQueryDocRoot").val() + '/sycgip/ss115.pgm?user=' + jq("#applicationUser").val() + '&curtur=' + unikId + '&UserIP=' + userIP;
-		  window.open(link + '&lay=HZ&copyprt=J&labeltyp=L', "printDocWinPf", "top=300px,left=50px,height=800px,width=900px,scrollbars=no,status=no,location=no");
-	  
+	  		var link = jq("#userHttpJQueryDocRoot").val() + '/sycgip/ss115.pgm?user=' + jq("#applicationUser").val() + '&curtur=' + unikId + '&UserIP=' + userIP;
+		  	var params = '&lay=HZ&copyprt=J&labeltyp=L';
+		  	var winName = "printDocWinPf";
+		  	var subject = "Merk Pdf";
+		  	var legend = "Merkelapp på Pdf (i A4 format/laser) "
+		  	renderModalForMerk(subject, legend, link, params, winName);
+		  	
 	  }else if(prefix.indexOf("merkZpl")>=0){
-		  var link = jq("#userHttpJQueryDocRoot").val() + '/sycgip/ss115.pgm?user=' + jq("#applicationUser").val() + '&curtur=' + unikId + '&UserIP=' + userIP;
-		  window.open(link + '&lay=HZ&copyprt=J&labeltyp=Z', "printDocWinMz", "top=300px,left=50px,height=800px,width=900px,scrollbars=no,status=no,location=no");
+		  	var link = jq("#userHttpJQueryDocRoot").val() + '/sycgip/ss115.pgm?user=' + jq("#applicationUser").val() + '&curtur=' + unikId + '&UserIP=' + userIP;
+		  	var params = '&lay=HZ&copyprt=J&labeltyp=Z';
+		  	var winName = "printDocWinMz";
+		  	var subject = "Merk Zpl";
+		  	var legend = "Merkelapp på Zpl format (ZPL Labelprinter) "
+		  	renderModalForMerk(subject, legend, link, params, winName);
+		  	
 	  }
 	  
-	  //refresh parent window
-	  setTimeout(refreshOrderListWindow, 4000);
   }
   
   function refreshOrderListWindow(){
 	  window.location.reload();
   }
+  
+  function renderModalForMerk(subject, legend, link, params, winName){
+	//Start dialog
+	  	jq('<div></div>').dialog({
+	        modal: true,
+	        width: "450",
+	        title: "Skriv ut - " + subject,
+	        buttons: {
+		        Fortsett: function() {
+	        		jq( this ).dialog( "close" );
+		            //do it
+	        		//var link = jq("#userHttpJQueryDocRoot").val() + '/sycgip/ss115.pgm?user=' + jq("#applicationUser").val() + '&curtur=' + unikId + '&UserIP=' + userIP;
+	      		  	//window.open(link + '&lay=HZ&copyprt=J&labeltyp=L', "printDocWinPf", "top=300px,left=50px,height=800px,width=900px,scrollbars=no,status=no,location=no");
+	        		window.open(link + params, winName, "top=300px,left=50px,height=800px,width=900px,scrollbars=no,status=no,location=no");
+	        		
+	      		  	//refresh parent window
+	      		  	setTimeout(refreshOrderListWindow, 4000);
+		        },
+		        Avbryt: function() {
+		            jq( this ).dialog( "close" );
+		        }
+	        },
+	        open: function() {
+		  		  var markup = "Er du sikker på at du vil skrive ut - " + legend + "?";
+		          jq(this).html(markup);
+		          //make Cancel the default button
+		          jq(this).siblings('.ui-dialog-buttonpane').find('button:eq(1)').focus();
+		     }
+		});  //end dialog
+	  		  
+  }
+  
+  
   
   jq(function() {
 	  jq("#date").datepicker({ 
