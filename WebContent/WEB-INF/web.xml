@@ -4,9 +4,9 @@
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
 	xsi:schemaLocation="http://Java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
  
-  <display-name>Systema eSpedsg2 EBOOK - Application(2020-12-03)</display-name>
+  <display-name>Systema eSpedsg2 EBOOK - Application(2020-12-03) </display-name>
   <welcome-file-list>
-    <welcome-file>/WEB-INF/index.jsp</welcome-file>
+    <welcome-file>/WEB-INF/index.jsp</welcome-file> 
   </welcome-file-list>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
