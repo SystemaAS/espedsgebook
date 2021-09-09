@@ -117,25 +117,48 @@
 		  modal: true
 	  });
   });
-  //Present dialog box onClick (href in parent JSP)
+  
   jq(function() {
+	  //Present dialog box onClick (href in parent JSP)	
 	  jq("#createNewOrderTabIdLink").click(function() {
+		  var usrLang = jq('#language').val();
+		  console.log(usrLang);	
+		  var title = "";
+		  var btnOk = "";
+		  var btnCancel = "";
+		
+		  if(usrLang.toUpperCase() == "NO"){
+			title = "Lag ny Ordre";
+			btnOk = "Fortsett";
+			btnCancel = "Avbryt";
+			
+		  }else if (usrLang.toUpperCase() == "SE"){
+			title = "Skapa ny Ordre";
+			btnOk = "Fortsätt";
+			btnCancel = "Avbryt";
+			
+		  }else{
+			title = "Create new Order";
+			btnOk = "Ok";
+			btnCancel = "Cancel";
+		  } 	
+		
 		  //setters (add more if needed)
-		  jq('#dialogCreateNewOrder').dialog( "option", "title", "Lag ny Ordre" );
+		  jq('#dialogCreateNewOrder').dialog( "option", "title", title );
 		  
 		  //deal with buttons for this modal window
 		  jq('#dialogCreateNewOrder').dialog({
 			 buttons: [ 
 	            {
 				 id: "dialogSaveTU",	
-				 text: "Fortsett",
+				 text: btnOk,
 				 click: function(){
 					 		jq('#createNewOrderForm').submit();
 				 		}
 			 	 },
 	 	 		{
 			 	 id: "dialogCancelTU",
-			 	 text: "Avbryt", 
+			 	 text: btnCancel, 
 				 click: function(){
 					 		//back to initial state of form elements on modal dialog
 					 		//jq("#dialogSaveSU").button("option", "disabled", true);
@@ -162,6 +185,21 @@
   //Alert modal pop-up
   //----------------------------------------
   function doPermanentlyDeleteOrder(element){
+	  var usrLang = jq('#language').val();
+	  var title = "";
+	  var markup = "Er du sikker på at du vil slette denne?";
+
+	  if(usrLang.toUpperCase() == "NO"){
+		title = "Dialog - Slett Oppdrag ";
+		markup = "Er du sikker på at du vil slette denne?"
+	  }else if (usrLang.toUpperCase() == "SE"){
+		title = "Dialog - Ta bort Uppdrag ";
+		markup = "Är du säker på att du vill ta bort detta uppdrag?"
+	  }else{
+		title = "Dialog - Remove Order ";
+		markup = "Are you sure you want to remove this order?"
+	  } 
+	
 	  //start
 	  var record = element.id.split('@');
 	  var hereff = record[0];
@@ -171,25 +209,25 @@
 	  	//Start dialog
 	  	jq('<div></div>').dialog({
 	        modal: true,
-	        title: "Dialog - Slett Oppdrag: " + hereff,
-	        buttons: {
-		        Fortsett: function() {
+	        title: title + hereff,
+            buttons: {
+				Ok: function() {
 	        		jq( this ).dialog( "close" );
 		            //do delete
 		            jq.blockUI({ message: BLOCKUI_OVERLAY_MESSAGE_DEFAULT});
 		            window.location = "ebooking_mainorderlist_permanently_delete_order.do?action=doDelete" + "&heunik=" + heunik + "&hereff=" + hereff;
 		        },
-		        Avbryt: function() {
+				Cancel: function() {
 		            jq( this ).dialog( "close" );
 		        }
 	        },
 	        open: function() {
-		  		  var markup = "Er du sikker på at du vil slette denne?";
-		          jq(this).html(markup);
+		  		  jq(this).html(markup);
 		          //make Cancel the default button
 		          jq(this).siblings('.ui-dialog-buttonpane').find('button:eq(1)').focus();
 		     }
-		});  //end dialog
+		});
+		
   }
   
   

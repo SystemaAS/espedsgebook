@@ -257,7 +257,7 @@
 							        </td>
 					 				<td class="text14">
 										<select class="selectMediumBlueE2" <c:if test="${not model.record.fakBetExists}"> disabled </c:if> name="xfakBet" id="xfakBet">
-											<option value=''>-velg-</option>
+											<option value=''>-<spring:message code="systema.ebooking.dropdown.velg"/>-</option>
 						 					<option value='S' <c:if test="${model.record.xfakBet == 'S'}"> selected </c:if> ><spring:message code="systema.ebooking.orders.form.update.label.shipper.seller"/></option>
 				 							<option value='M' <c:if test="${model.record.xfakBet == 'M'}"> selected </c:if> ><spring:message code="systema.ebooking.orders.form.update.label.consignee"/></option>
 				 							<option value='A' <c:if test="${model.record.xfakBet == 'A'}"> selected </c:if> ><spring:message code="systema.ebooking.orders.form.update.label.annen"/></option>
@@ -357,7 +357,7 @@
 		 										<img id="imgShipperSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 									</a>
 	 									<%-- </c:if> --%>
-	 									<font style="margin-left:10em;color:darkgreen;" title="wvakure">&nbsp;Hurtigsøk-knr</font>
+	 									<font style="margin-left:10em;color:darkgreen;" title="wvakure">&nbsp;<spring:message code="systema.ebooking.orders.form.update.label.hurtigsok.knr"/></font>
 					 				</td>
 					 				<td class="text14">&nbsp;<font class="text16RedBold" >*</font><span title="heads1"><spring:message code="systema.ebooking.orders.form.update.label.shipper.adr1"/></span></td>
 					 			</tr>
@@ -525,7 +525,7 @@
 		 										<img id="imgConsigneeSearch" align="bottom" style="cursor:pointer;" src="resources/images/find.png" height="13px" width="13px" border="0" alt="search">
 		 									</a>
 	 									<%-- </c:if> --%>
-	 									<font style="margin-left:10em;color:darkgreen;" title="wvakure2">&nbsp;Hurtigsøk-knr</font>
+	 									<font style="margin-left:10em;color:darkgreen;" title="wvakure2">&nbsp;<spring:message code="systema.ebooking.orders.form.update.label.hurtigsok.knr"/></font>
 					 				</td>
 					 				<td class="text14">&nbsp;<font class="text16RedBold" >*</font><span title="headk1"><spring:message code="systema.ebooking.orders.form.update.label.consignee.adr1"/></span></td>
 					 			</tr>
@@ -753,7 +753,7 @@
 							 						<c:set var="listSizeHeot" value="${counter.count}" scope="request" /> 
 							 					</c:forEach>
 							 					<c:if test="${listSizeHeot > 1}">
-							 						<option value="" <c:if test="${empty model.record.heot}"> selected </c:if> >-velg-</option>
+							 						<option value="" <c:if test="${empty model.record.heot}"> selected </c:if> >-<spring:message code="systema.ebooking.dropdown.velg"/>-</option>
 							 					</c:if>
 											</select>
 							 			</td>
@@ -768,7 +768,7 @@
 							 						<c:set var="listSizeHefr" value="${counter.count}" scope="request" />
 							 					</c:forEach>
 							 					<c:if test="${listSizeHefr > 1}">
-							 						<option value="" <c:if test="${empty model.record.hefr}"> selected </c:if> >-velg-</option>
+							 						<option value="" <c:if test="${empty model.record.hefr}"> selected </c:if> >-<spring:message code="systema.ebooking.dropdown.velg"/>-</option>
 							 					</c:if>
 											</select>
 							 			</td>
@@ -946,7 +946,7 @@
 							 			<td align="right" valign="bottom" class="tableHeaderField12"><span title="fvhoy">&nbsp;<spring:message code="systema.ebooking.orders.form.detail.update.label.height"/>&nbsp;</span></td>
 							 			<td align="right" valign="bottom" class="tableHeaderField12"><span title="fvvol/hem3(Tot)">&nbsp;<spring:message code="systema.ebooking.orders.form.detail.update.label.m3"/>&nbsp;</span></td>
 							 			<td align="right" valign="bottom" class="tableHeaderField12"><span title="fvlm/helm(Tot)">&nbsp;<spring:message code="systema.ebooking.orders.form.detail.update.label.lm.fa"/>&nbsp;</span></td>
-							 			<td align="center" valign="bottom" class="tableHeaderField12"><span title="Farlig gods">&nbsp;Farlig gods&nbsp;</span></td>
+							 			<td align="center" valign="bottom" class="tableHeaderField12"><span title="Farlig gods">&nbsp;<spring:message code="systema.ebooking.orders.form.detail.update.label.farliggoods"/>&nbsp;</span></td>
 						 			
 							 		</tr>
 							 		<tr >
@@ -988,7 +988,7 @@
 						 				</td>
 						 				
 						 				<td align="center" class="text14" >
-							 				<button name="dangerousGoodsNewLineButton" class="buttonGray" type="button" onClick="showPop('dangerousGoodsNewLine');" >Mere...</button>
+							 				<button name="dangerousGoodsNewLineButton" class="buttonGray" type="button" onClick="showPop('dangerousGoodsNewLine');" ><spring:message code="systema.ebooking.button.mere"/>...</button>
 							 					<div class="text14" style="position: relative;" align="left">
 							 					<span style="position:absolute;left:-350px;top:-25px;" id="dangerousGoodsNewLine" class="popupWithInputText"  >
 								           		<table>
@@ -1155,7 +1155,7 @@
 						 			<td class="text14"><spring:message code="systema.ebooking.orders.form.update.label.email"/></td>
 						 			<td class="text14">
 						 				<input type="text" class="inputTextMediumBlue11" size="55" maxlength="70" name="wsmail" id="wsmail" value="${model.record.wsmail}">
-						 				&nbsp;(ekstra booking bekreftelse)
+						 				&nbsp;(<spring:message code="systema.ebooking.orders.form.update.label.email.extra.booking"/>)
 					 				</td>									
 				 				</tr>
 			 				</table>
@@ -1166,7 +1166,7 @@
 					 			<td align="left">
 					 			<table class="tableBorderWithRoundCorners" width="480px">
 									<tr>
-							 			<td valign="top" class="text14">Arkiv docs. &nbsp;
+							 			<td valign="top" class="text14"><spring:message code="systema.ebooking.orders.form.update.label.archivedocs"/> &nbsp;
 						 					<ul>
 						 					<c:forEach items="${model.record.archivedDocsRecord}" var="record" varStatus="counter">
 						 						<li>

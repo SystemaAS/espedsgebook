@@ -193,10 +193,10 @@
 		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.from"/></th>
 		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.to"/></th>
 		                    <%-- START Print --%>
-		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;F.br&nbsp;</td>
-		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;Cmr&nbsp;</td>
-		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;Merk Pdf&nbsp;</td>
-		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;Merk Zpl&nbsp;</td>
+		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;<spring:message code="systema.ebooking.orders.open.list.search.label.extra.fbr"/>&nbsp;</td>
+		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;<spring:message code="systema.ebooking.orders.open.list.search.label.extra.cmr"/>&nbsp;</td>
+		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;<spring:message code="systema.ebooking.orders.open.list.search.label.extra.pdf"/>&nbsp;</td>
+		                    <th class="tableHeaderFieldEbookingPrint" align="center" title="Skriv ut">&nbsp;<spring:message code="systema.ebooking.orders.open.list.search.label.extra.zpl"/>&nbsp;</td>
 		                    <%-- END Print --%>
 		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.transmit"/></th>
 		                    <th class="text14"><spring:message code="systema.ebooking.orders.open.list.search.label.delete"/></th>
@@ -404,7 +404,7 @@
 				 	<input type="hidden" name="actionGS" id="actionGS" value='doUpdate'/>
 					<input type="hidden" name="applicationUser" id="applicationUser" value='${user.user}'>
 					
-					<p class="text14" >&nbsp;Velg type av Transportoppdrag.</p>
+					<p class="text14" >&nbsp;<spring:message code="systema.ebooking.orders.open.form.button.createnew.order.legend"/></p>
 										
 					<table>
 						<tr>
