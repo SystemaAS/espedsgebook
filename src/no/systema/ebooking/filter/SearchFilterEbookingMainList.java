@@ -6,7 +6,7 @@ package no.systema.ebooking.filter;
 import java.lang.reflect.Field;
 import java.util.*;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 /**
  * This search class is used at the GUI search behavior
@@ -19,7 +19,7 @@ import org.apache.log4j.Logger;
  * 
  */
 public class SearchFilterEbookingMainList {
-	private static final Logger logger = Logger.getLogger(SearchFilterEbookingMainList.class.getName());
+	private static final Logger logger = LogManager.getLogger(SearchFilterEbookingMainList.class.getName());
 	
 	private String orderNr = null;
 	public void setOrderNr(String value) {  this.orderNr = value; }

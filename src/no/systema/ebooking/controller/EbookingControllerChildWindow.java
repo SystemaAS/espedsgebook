@@ -5,7 +5,7 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
@@ -69,7 +69,7 @@ public class EbookingControllerChildWindow {
 	private final String DATATABLE_PACKING_CODES_LIST = "packingCodesList";
 	private final String DATATABLE_DANGEROUS_GOODS_LIST = "dangerousGoodsList";
 	
-	private static final Logger logger = Logger.getLogger(EbookingControllerChildWindow.class.getName());
+	private static final Logger logger = LogManager.getLogger(EbookingControllerChildWindow.class.getName());
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(2000);
 	private DateTimeManager dateTimeManager = new DateTimeManager();
 	private StringManager strMgr = new StringManager();

@@ -4,7 +4,7 @@
 package no.systema.ebooking.mapper.jsonjackson;
 
 //jackson library
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 
 //application library
 import no.systema.ebooking.model.jsonjackson.JsonMainOrderHeaderContainer;
@@ -29,7 +29,7 @@ import no.systema.ebooking.model.jsonjackson.JsonMainOrderFileUploadValidationCo
  * 
  */
 public class JsonOrderHeaderMapper extends ObjectMapperAbstractGrandFather {
-	private static final Logger logger = Logger.getLogger(JsonOrderHeaderMapper.class.getName());
+	private static final Logger logger = LogManager.getLogger(JsonOrderHeaderMapper.class.getName());
 	/**
 	 * 
 	 * @param utfPayload

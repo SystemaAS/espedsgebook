@@ -4,7 +4,7 @@
 package no.systema.ebooking.mapper.jsonjackson;
 
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.*;
 //application library
 
 import no.systema.ebooking.model.jsonjackson.order.childwindow.JsonEbookingCustomerContainer;
@@ -32,7 +32,7 @@ import java.util.*;
  * 
  */
 public class JsonEbookingChildWindowMapper extends ObjectMapperAbstractGrandFather {
-	private static final Logger logger = Logger.getLogger(JsonEbookingChildWindowMapper.class.getName());
+	private static final Logger logger = LogManager.getLogger(JsonEbookingChildWindowMapper.class.getName());
 	/**
 	 * 
 	 * @param utfPayload
