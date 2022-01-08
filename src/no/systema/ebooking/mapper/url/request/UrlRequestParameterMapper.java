@@ -6,7 +6,7 @@ package no.systema.ebooking.mapper.url.request;
 import java.lang.reflect.Field;
 import java.net.URLEncoder;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 import no.systema.main.model.jsonjackson.general.JsonAbstractGrandFatherRecord;
 import no.systema.ebooking.util.EbookingConstants;
 /**
@@ -15,7 +15,7 @@ import no.systema.ebooking.util.EbookingConstants;
  * 
  */
 public class UrlRequestParameterMapper {
-	private static final Logger logger = LogManager.getLogger(UrlRequestParameterMapper.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(UrlRequestParameterMapper.class.getName());
 	
 	/**
 	 * Builds the final url parameter list (to send with a GET or POST form method)

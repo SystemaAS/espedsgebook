@@ -5,7 +5,7 @@ package no.systema.ebooking.util.manager;
 
 import java.util.*;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 import no.systema.main.model.SystemaWebUser;
 import no.systema.main.service.UrlCgiProxyService;
@@ -43,7 +43,7 @@ import no.systema.ebooking.service.html.dropdown.EbookingDropDownListPopulationS
  */
 
 public class CodeDropDownMgr {
-	private static final Logger logger = LogManager.getLogger(CodeDropDownMgr.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(CodeDropDownMgr.class.getName());
 	//
 	public static final String CODE_2_COUNTRY = "2";
 	

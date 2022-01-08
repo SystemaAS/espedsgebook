@@ -4,7 +4,7 @@
 package no.systema.ebooking.mapper.jsonjackson;
 
 //jackson library
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 
 //application library
 import no.systema.ebooking.model.jsonjackson.codes.JsonEbookingCodeContainer;
@@ -25,7 +25,7 @@ import java.util.*;
  * 
  */
 public class JsonEbookingCodeMapper extends ObjectMapperAbstractGrandFather {
-	private static final Logger logger = LogManager.getLogger(JsonEbookingCodeMapper.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(JsonEbookingCodeMapper.class.getName());
 	
 	public JsonEbookingCodeContainer getContainer(String utfPayload) throws Exception{
 		

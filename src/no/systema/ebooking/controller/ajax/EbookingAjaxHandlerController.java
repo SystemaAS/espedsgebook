@@ -14,7 +14,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
@@ -70,7 +70,7 @@ import no.systema.ebooking.util.RpgReturnResponseHandler;
 @Controller
 
 public class EbookingAjaxHandlerController {
-	private static final Logger logger = LogManager.getLogger(EbookingAjaxHandlerController.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(EbookingAjaxHandlerController.class.getName());
 	private RpgReturnResponseHandler rpgReturnResponseHandler = new RpgReturnResponseHandler();
 	//private ControllerAjaxCommonFunctionsMgr controllerAjaxCommonFunctionsMgr;
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(2000);

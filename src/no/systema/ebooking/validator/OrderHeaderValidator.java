@@ -6,7 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 import org.springframework.validation.Validator;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -34,7 +34,7 @@ import no.systema.main.validator.EmailValidator;
  *
  */
 public class OrderHeaderValidator implements Validator {
-	private static final Logger logger = LogManager.getLogger(OrderHeaderValidator.class.getName());
+	private static final Logger logger = LoggerFactory.getLogger(OrderHeaderValidator.class.getName());
 	//Init services here
 	private EbookingChildWindowService ebookingChildWindowService = new EbookingChildWindowServiceImpl();
 	private UrlCgiProxyService urlCgiProxyService = new UrlCgiProxyServiceImpl();

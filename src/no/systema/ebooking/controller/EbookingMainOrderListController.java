@@ -8,7 +8,7 @@ import javax.annotation.PreDestroy;
 
 
   
-import org.apache.logging.log4j.*;
+import org.slf4j.*;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.stereotype.Controller;
@@ -62,7 +62,7 @@ import no.systema.ebooking.util.RpgReturnResponseHandler;
 @Scope("session")
 public class EbookingMainOrderListController {
 	private static final JsonDebugger jsonDebugger = new JsonDebugger(1500);
-	private static Logger logger = LogManager.getLogger(EbookingMainOrderListController.class.getName());
+	private static Logger logger = LoggerFactory.getLogger(EbookingMainOrderListController.class.getName());
 	private ModelAndView loginView = new ModelAndView("login");
 	private ApplicationContext context;
 	private LoginValidator loginValidator = new LoginValidator();
